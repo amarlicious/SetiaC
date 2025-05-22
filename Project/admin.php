@@ -15,8 +15,7 @@
     echo "Nama saya $name<br>";
     echo "saya sangat $type<br>";
     echo "umur saya $umur tahun<br>";
-    echo "$test nayyimellow";
-
+    echo "$test nayyimellow helmykiwi";
     ?>
 </body>
 </html>
