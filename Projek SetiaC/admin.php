@@ -7,12 +7,11 @@
 </head>
 <body>
     <?php 
-    $name="amar";
-    $uni="utem";
-    echo "my name is $name <br>"; 
-    echo "i love $uni";
+    $name = "amar";
+    $uni = "utem";
     
+    echo "My name is $name<br>";
+    echo "I love $uni";
     ?>
-    
 </body>
 </html>
