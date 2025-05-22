@@ -9,9 +9,11 @@
     <?php 
     $name="Uncle mutu";
     $type="hensem";
+    $umur=100;
 
     echo "Nama saya $name<br>";
-    echo "saya sangat $type";
+    echo "saya sangat $type<br>";
+    echo "umur saya $umur tahun";
 
     ?>
 </body>
