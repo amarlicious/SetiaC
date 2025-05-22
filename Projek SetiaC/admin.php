@@ -9,8 +9,8 @@
     <?php 
     $name="amar";
     $uni="utem";
-    echo "my name is $name "; 
-    echo " i love $uni ";
+    echo "my name is $name <br>"; 
+    echo "i love $uni";
     
     ?>
     
