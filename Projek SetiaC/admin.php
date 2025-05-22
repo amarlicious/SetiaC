@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    <?php 
+    $name="amar";
+    $uni="utem";
+    echo "my name is $name"; 
+    echo "i love $uni";
+    
+    ?>
     
 </body>
 </html>
