@@ -10,10 +10,12 @@
     $name="Uncle mutu";
     $type="hensem";
     $umur=100;
+    $test="test";
 
     echo "Nama saya $name<br>";
     echo "saya sangat $type<br>";
-    echo "umur saya $umur tahun";
+    echo "umur saya $umur tahun<br>";
+    echo "$test";
 
     ?>
 </body>
