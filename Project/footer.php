@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Footer</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer {
+      background-color: gray;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-family:'Playfair Display',serif;
+    }
+
+    .footer h1 {
+      margin: 0;
+      padding-bottom: 10px;
+    }
+
+    .footer .foot {
+    
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+   
+    .footer .copy {
+      margin-top: 10px;
+      font-size: 0.4cm;
+    }
+  </style>
 </head>
 <body>
+  <div class="footer">
+    <?php 
+      $name = "Setia";
+      echo "<h1>$name</h1>";
+    ?>
     
+    <ul class="foot">
+      <li> Privacy </li>
+      <li> Terms </li>
+      <li> Sitemap </li>
+    </ul>
+
+    <p class="copy">&copy; 2025 Brand, Inc.</p>
+  </div>
 </body>
 </html>
+    

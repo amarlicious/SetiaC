@@ -18,5 +18,9 @@
     echo "$test nayyimellow helmykiwi";
     echo"woi";
     ?>
+
+    <?php 
+    include("footer.php");
+    ?>
 </body>
 </html>
