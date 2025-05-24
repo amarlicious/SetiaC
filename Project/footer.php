@@ -29,12 +29,14 @@
       display: flex;
       justify-content: center;
       gap: 20px;
+      color: black;
+      padding: 50px;
     }
 
    
     .footer .copy {
-      margin-top: 10px;
-      font-size: 0.4cm;
+   list-style-type:none;
+
     }
   </style>
 </head>
@@ -46,12 +48,15 @@
     ?>
     
     <ul class="foot">
-      <li> Privacy </li>
-      <li> Terms </li>
-      <li> Sitemap </li>
+    
+    <li class="copy">&copy; 2025 Brand, Inc.</li>
+    <li> Privacy </li>
+    <li> Terms </li>
+    <li> Sitemap </li>
+       
     </ul>
 
-    <p class="copy">&copy; 2025 Brand, Inc.</p>
+   
   </div>
 </body>
 </html>
