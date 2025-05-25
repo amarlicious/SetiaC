@@ -1,36 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      
+    }
 
-    <style>
+    .head {
+     background-color: #7986e4;
+     color: white;
+     padding: 20px;
+     display: flex;
+     align-items: center;
+     justify-content: flex-start; 
+     gap: 20px; 
+     font-family: Arial, sans-serif;
+}
 
-    
+    #setia {
+      font-size: 40px;
+      font-weight: bold;
+    }
 
-        .head
-        {
-            background-color: #7986E4;
-            color: white;
-            padding: 20px ;
-           
-        }
+    .tagline {
+      display: flex;
+      flex-direction: column;
 
-        body
-        {
-            margin: 0;
+    }
 
-        }
+    #stay {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
 
+    .word {
+      display: flex;
+      gap: 5px;
+      font-weight: bold;
+    }
 
-    </style>
+    .word li {
+      list-style: none;
+    }
+
+    .no1 {
+      color: limegreen;
+    }
+
+    .no2 {
+      color: hotpink;
+    }
+
+    .no3 {
+      color: aqua;
+    }
+
+    .no4 {
+      color: orange;
+    }
+  </style>
 </head>
 <body>
-    <div class="head">
+  <div class="head">
     <h1 id="setia">Setia</h1>
-    <p id="stay">Stay Together,Stay Setia</p>
+
+    <div class="tagline">
+      <p id="stay">Stay Together. Stay Setia</p>
+
+      <ul class="word">
+        <li class="no1">live</li>
+        <li class="no2">learn</li>
+        <li class="no3">work</li>
+        <li class="no4">play</li>
+      </ul>
     </div>
-   
+  </div>
 </body>
 </html>

@@ -6,9 +6,10 @@
   <title>Footer</title>
 
   <style>
-    body {
+    * {
       margin: 0;
       font-family: Arial, sans-serif;
+      padding:0;
     }
 
     .footer {
