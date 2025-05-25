@@ -8,6 +8,7 @@
     * {
       margin: 0;
       padding: 0;
+      background-color: white;
       
     }
 
@@ -63,6 +64,38 @@
     .no4 {
       color: orange;
     }
+
+
+    .nav
+    {
+        display: flex;
+        flex-direction:row ;
+        gap: 20px;
+        list-style-type: none;
+        justify-content: end;
+        margin-left: auto;
+    } 
+
+    .nav li a
+    {
+        text-decoration: none;
+        color: red;
+
+    } 
+   
+
+    nav ul li a:hover
+    {
+        background: blue;
+        text-decoration: underline;
+
+    }
+    
+    .menu
+    {
+        margin-left: auto;
+    }
+    
   </style>
 </head>
 <body>
@@ -78,7 +111,20 @@
         <li class="no3">work</li>
         <li class="no4">play</li>
       </ul>
+
+   
     </div>
+
+     <nav class="menu">
+    <ul class="nav">
+
+    <li><a href="home.php">Home</a></li>
+    <li><a href="setting.php">Setting</a></li>
+
+    </ul>
+    </nav>
   </div>
+
+
 </body>
 </html>
