@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+
+<?php include("header.php")  ?>
     <?php 
     $name="Uncle mutu";
     $type="hensem";

@@ -11,10 +11,17 @@
 
         .head
         {
-            background-color: lightblue;
+            background-color: #7986E4;
             color: white;
+            padding: 20px ;
+           
         }
 
+        body
+        {
+            margin: 0;
+
+        }
 
 
     </style>
