@@ -12,7 +12,7 @@
         <div class="admin-sidebar" >
             <p class="admin">Admin</p>
             <ul>
-                <li id="Home">Home</li>
+                <li id="Home"><a href="../Project/home.php">Home</a></li>
                 <li id="Report">Report</li>
                 <li id="message">Message</li>
                 <li id="setting"><a href="../Project/setting.php">Setting</a></li>
