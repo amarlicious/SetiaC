@@ -79,7 +79,7 @@
     .nav li a
     {
         text-decoration: none;
-        color: red;
+        color: white;
 
     } 
    
