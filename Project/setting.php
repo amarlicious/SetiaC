@@ -6,6 +6,6 @@
     <title>Setting</title>
 </head>
 <body>
-    
+    <h1>BELUM EDIT</h1>
 </body>
 </html>

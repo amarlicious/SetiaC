@@ -74,6 +74,7 @@
         list-style-type: none;
         justify-content: end;
         margin-left: auto;
+        cursor: pointer;
     } 
 
     .nav li a
