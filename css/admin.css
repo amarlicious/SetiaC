@@ -20,7 +20,6 @@ html, body {
     height: 100vh;
     background-color: bisque;
     padding-top: 20px;
-    flex-shrink: 0;
 }
 
 .admin {
@@ -57,9 +56,10 @@ li:hover {
     background-color: whitesmoke;
 }
 
-.side-admin {
-    
-    background-color: white;
-    padding: 20px;
+
+
+.container
+{
+    display: flex;
 }
 

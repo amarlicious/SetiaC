@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../css/admin.css" type="text/css">
 </head>
 <body>
-    <div class="main-wrapper"> <div class="admin-sidebar" >
+    <div class="container">
+        <div class="admin-sidebar" >
             <p class="admin">Admin</p>
             <ul>
                 <li id="Home">Home</li>
@@ -18,8 +19,9 @@
             </ul>
         </div>
 
-        <div class="side-admin">
+        <div class="sebelah-admin">
             <p>woi</p>
-            </div>
-    </div> </body>
+        </div>
+    </div>
+</body>
 </html>
