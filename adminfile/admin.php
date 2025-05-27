@@ -24,7 +24,7 @@
         </div>
 
         <div class="sebelah-admin">
-            <h1>Message</h1>
+            <h1 class="message">Message</h1>
 
         <form class="search" action="search.php" method="GET">
         <input type="text" name="search" placeholder="Search...">
@@ -39,6 +39,8 @@
         ?>
         
         </div>
+
+        <div class="bawah-admin">0</div>
 
        
     </div>
