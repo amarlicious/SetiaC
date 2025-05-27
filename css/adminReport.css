@@ -1,0 +1,102 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+     font-family: 'Inter', sans-serif; 
+}
+.head {
+    background-color: #7B61FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.admin-sidebar {
+    width: 15vw;
+    height: 100vh;
+    background-color:  rgb(235, 235, 235);
+    padding-top: 20px;
+    background: #FFFFFFFF;
+    border-radius: 0px;
+    box-shadow: 0px 8px 17px #171a1f26, 0px 0px 2px #171a1f1F;
+}
+
+.admin {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+li {
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+#Home a 
+{
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+#setting a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+li:hover {
+    background-color: whitesmoke;
+}
+
+
+.container
+{
+    display: flex;
+}
+
+div h1
+{
+    padding: 30px;
+
+}
+
+.search 
+{
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
