@@ -18,7 +18,7 @@ html, body {
 .admin-sidebar {
     width: 25vw;
     height: 100vh;
-    background-color: bisque;
+    background-color:  #7B61FF;
     padding-top: 20px;
 }
 
@@ -45,12 +45,23 @@ li {
     width: 100%;
 }
 
+#Home a 
+{
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
 #setting a {
     text-decoration: none;
     color: black;
     width: 100%;
     box-sizing: border-box;
 }
+
+
 
 li:hover {
     background-color: whitesmoke;
