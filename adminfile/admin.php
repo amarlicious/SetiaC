@@ -6,8 +6,11 @@
     <title>Admin Page</title>
     
     <link rel="stylesheet" href="../css/admin.css" type="text/css">
+
+   
 </head>
 <body>
+    
     <div class="container">
         <div class="admin-sidebar" >
             <p class="admin">Admin</p>
@@ -20,8 +23,24 @@
         </div>
 
         <div class="sebelah-admin">
-            <p>woi</p>
+            <h1>Message</h1>
+
+        <form class="search" action="search.php" method="GET">
+        <input type="text" name="search" placeholder="Search...">
+        <button type="submit">Search</button>
+        </form>
+
+        <?php
+        if (isset($_GET['search'])) {
+        $search = htmlspecialchars($_GET['search']);
+        echo "You searched for: <strong>$search</strong>";
+        }
+        ?>
+        
         </div>
+
+       
     </div>
-</body>
+    
+</body></footer>
 </html>
