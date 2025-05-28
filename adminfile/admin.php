@@ -17,7 +17,7 @@
             <p class="admin">Admin</p>
             <ul>
                 <li id="Home"><a href="../Project/home.php">Home</a></li>
-                <li id="Report"><a href="adminReport.php">Report</a></li>
+                <li id="Report"><a href="report.php">Report</a></li>
                 <li id="message">Message</li>
                 <li id="setting"><a href="../Project/setting.php">Setting</a></li>
             </ul>
