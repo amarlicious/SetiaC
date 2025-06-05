@@ -73,6 +73,13 @@ li {
     box-sizing: border-box;
 }
 
+#message a
+{
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    box-sizing: border-box;
+}
 
 li:hover {
     background-color: whitesmoke;
