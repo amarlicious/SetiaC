@@ -1,0 +1,78 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+     font-family: 'Inter', sans-serif; 
+}
+
+
+.head {
+    background-color: #7B61FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: white;
+    font-size: 24px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.bulatan {
+  width: 267px;
+  height: 255px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  border: 5px solid #FFFFFF;
+  box-shadow: 0px 17px 35px #171a1f3D, 0px 0px 2px #171a1f1F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+}
+
+.icon {
+  width: 146px;
+  height: 146px;
+}
+
+.text {
+margin: 30px auto;
+text-align: center;
+top: 525px;
+left: 429px;
+width: 508px;
+height: 168px;
+font-family: Inter;
+font-size: 64px;
+line-height: 84px;
+font-weight: 700;
+color: #171A1FFF;
+}
+
+.home-button {
+    background-color: #7B61FF;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-button :hover {
+    background-color: #7B61FF;
+}
+
+.home-button a{
+    text-decoration: none;
+    color: white;
+}
+
