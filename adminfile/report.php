@@ -7,6 +7,22 @@
   <link rel="stylesheet" href="../css/report.css" type="text/css" />
 </head>
 <body>
+
+ <div class="burger-bg">
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <a href="#">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
+    <a href="#">Logout</a>
+  </div>
+
   <div class="head">
     <h1>Report</h1>
   </div>
@@ -45,5 +61,16 @@
       </form>
     </div>
   </div>
+
+
+   <script>
+    const burger = document.getElementById('burger');
+    const sidebar = document.getElementById('sidebar');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
+    });
+  </script>
 </body>
 </html>
