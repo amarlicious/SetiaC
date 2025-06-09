@@ -11,7 +11,7 @@
     box-sizing: border-box;
     }
 
-    /* Burger icon wrapper */
+
     .burger-bg {
     padding: 10px;
     position: fixed;
@@ -20,9 +20,11 @@
     z-index: 1000;
     width: 60px;
     height: 60px;
+    background-color: #7B61FF;
+    
     }
 
-    /* Burger icon */
+    
     .burger {
     width: 30px;
     height: 22px;
@@ -52,18 +54,17 @@
     transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* Sidebar menu */
+
     .sidebar {
     height: 100%;
     width: 0;
     position: fixed;
     z-index: 999;
-    top: 0;
-    left: 0;
-    background-color: white;
+    background-color: whitesmoke;
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
+    
     }
 
     .sidebar a {
@@ -72,6 +73,7 @@
     font-size: 18px;
     color: black;
     display: block;
+    
     }
 
     .sidebar a:hover {
@@ -79,20 +81,11 @@
     color: red;
     }
 
-    /* Main content block */
+   
     .content {
     padding: 20px;
     margin-left: 20px;
     }
 
-    /* Group 32 styling */
-    .group {
-    position: absolute;
-    top: 125px;
-    left: 0px;
-    width: 494px;
-    height: 711px;
-    background-color: #f4f4f4; /* optional: for visibility */
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* optional */
-    }
+ 
+ 
