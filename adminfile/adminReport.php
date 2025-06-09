@@ -10,6 +10,7 @@
    
 </head>
 <body>
+    <?php include("burger.php");  ?>
 
 <div class="sidebar">
   <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
