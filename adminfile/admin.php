@@ -8,8 +8,10 @@
 </head>
 <body>
 
-    <nav><?php include("../Project/header.php"); ?></nav>
+    <?php include("../header.php"); ?>
 
+ 
+<?php include("burger.php");  ?>
     <div class="container">
         <div class="admin-sidebar">
             <p class="admin">Admin</p>

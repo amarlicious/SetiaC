@@ -1,0 +1,96 @@
+    html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    }
+
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+
+    .burger-bg {
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    background-color: #7B61FF;
+    
+    
+    }
+
+    
+    .burger {
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    }
+
+    .burger span {
+    height: 4px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+    transition: 0.4s;
+    }
+
+    .burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger.active span:nth-child(2) {
+    opacity: 0;
+    }
+
+    .burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+
+    .sidebar {
+    height: 50%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    
+    }
+
+    .sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+    border-radius: 0px;
+    box-shadow: 0px 17px 35px #171a1f3D, 0px 0px 2px #171a1f1F;
+ 
+    
+    }
+
+    .sidebar a:hover {
+    background-color: #7B61FF;
+    color: red;
+    }
+
+   
+    .content {
+    padding: 20px;
+    margin-left: 20px;
+    }
+
+ 
+ 

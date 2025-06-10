@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="../css/report.css" type="text/css" />
 </head>
 <body>
+<?php include("burger.php");?>
+
   <div class="head">
     <h1>Report</h1>
   </div>
@@ -45,5 +47,8 @@
       </form>
     </div>
   </div>
+
+
+
 </body>
 </html>
