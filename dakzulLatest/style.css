@@ -1,0 +1,42 @@
+
+.report {
+  max-width: 1000px;
+  max-height: 1000px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+h2{
+  padding-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.categories{
+  text-align: left;
+}
+button, .button, input[type="submit"] {
+background-color: #7B61FF;
+color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+}
+  
+button:hover, .button:hover {
+  background-color: #654bd1;
+}
+  
+
+
