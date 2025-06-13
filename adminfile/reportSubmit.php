@@ -14,7 +14,7 @@
 
   <div class="main-content">
     <div class="bulatan">
-      <img class="icon" src="right icon.jpg" alt="Success Icon" />
+      <img class="icon" src="../image/right icon.jpg" alt="Success Icon" />
     </div>
 
     <div class="text"><P>Report Submitted!</P></div>

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <?php include("../header.php"); ?>
+    <?php include("../dakzulLatest/header.php"); ?>
 
  
 <?php include("burger.php");  ?>
@@ -16,7 +16,7 @@
         <div class="admin-sidebar">
             <p class="admin">Admin</p>
             <ul>
-                <li id="Home"><a href="../Project/home.php">Home</a></li>
+                <li id="Home"><a href="../dakzulLatest/homepage.php">Home</a></li>
                 <li id="Report"><a href="report.php">Report</a></li>
                 <li id="message"><a href="message.php">Message</a></li>
                 <li id="setting"><a href="../Project/setting.php">Setting</a></li>

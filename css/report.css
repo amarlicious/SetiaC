@@ -206,3 +206,9 @@ html, body {
   padding: 20px;
   margin-left: 20px;
 }
+
+#picture
+{
+  text-align: center;
+  align-items: center;
+}
