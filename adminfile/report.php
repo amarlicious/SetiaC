@@ -40,7 +40,7 @@ if (!isset($_SESSION['username'])) {
 
       <h3 class="addcategory">Category</h3>
       <div class="chckbxcategory">
-        <label class="checkbox-item">
+        <label class="checkbox-item" name="checkbox-item">
           <input type="checkbox" name="site[]" value="Infrastructure" /> Infrastructure
         </label>
         <label class="checkbox-item">

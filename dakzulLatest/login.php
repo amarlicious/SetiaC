@@ -35,7 +35,7 @@ if(isset($_SESSION['username'], $_SESSION['password'])){
     $input_password = $_SESSION['password'];
 
     $sql = "SELECT * FROM residence WHERE username='$username'";
-    $result = $conn->query(query: $sql);
+    $result = $conn->query($sql);
 
     if($result->num_rows == 1){
         $user = $result->fetch_assoc();
