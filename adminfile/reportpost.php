@@ -1,4 +1,5 @@
 <?php
+include('connection.php'); // penting!
 
 session_start();
 
@@ -27,7 +28,7 @@ if (isset($_FILES['picture']) && $_FILES['picture']['error'] === 0) {
 
 // Dapatkan user ID dari sesi jika ada
 $username = $_SESSION['username'];
-$user_sql = "SELECT id FROM member WHERE username = '$username'";
+$user_sql = "SELECT id FROM reportpost WHERE username = '$username'";
 $user_result = $conn->query($user_sql);
 
 if ($user_result->num_rows === 1) {

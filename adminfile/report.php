@@ -1,16 +1,9 @@
 <?php
 session_start();
-
-if (isset($_POST['submit'])) {
-    if (!empty($_SESSION)) {
-        header("Location: reportSubmit.php");
-        exit();
-    } else {
-        session_destroy();
-        echo "Sorry. Your login attempt was not successful. Please try again!<br>";
-        echo "<meta http-equiv='refresh' content='3; URL=index.php'>";
-        exit();
-    }
+if (!isset($_SESSION['username'])) {
+    echo "Access denied. Please log in.";
+    echo "<meta http-equiv='refresh' content='3; URL=homepage.php'>";
+    exit();
 }
 ?>
 
@@ -30,7 +23,8 @@ if (isset($_POST['submit'])) {
   <h1>Report</h1>
 </div>
 
-<form>
+<form < id="form1" name="form1" action="reportpost.php" enctype="multipart/form-data" method="POST">
+>
   <div class="camera">
   <div class="camera-container">
     <p class="addPhoto">Add Photo</p>
@@ -40,7 +34,7 @@ if (isset($_POST['submit'])) {
   <div class="report-section-form">
     <h2 class="addReport">Add Report</h2>
 
-    <form id="form1" name="form1" action="member.php" enctype="multipart/form-data" method="POST">
+    
       <!-- Report Text -->
       <input type="text" id="reportInput" name="report_text" placeholder="Text" class="report-input" />
 
@@ -62,7 +56,7 @@ if (isset($_POST['submit'])) {
 
       <!-- Submit Button -->
       <button type="submit" class="send-button" name="submit">Send</button>
-    </form>
+  
   </div>
 </form>
 </div>
