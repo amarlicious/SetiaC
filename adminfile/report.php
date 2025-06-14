@@ -21,26 +21,7 @@ if (isset($_POST['submit'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Report</title>
   <link rel="stylesheet" href="../css/report.css" type="text/css" />
-  <script>
-    function validateForm(event) {
-      const text = document.getElementById("reportInput").value.trim();
-      const checkboxes = document.querySelectorAll('input[name="site[]"]:checked');
-      
-      if (text === "") {
-        alert("Please fill in the report text.");
-        event.preventDefault(); // Halang submit
-        return false;
-      }
 
-      if (checkboxes.length === 0) {
-        alert("Please select at least one category.");
-        event.preventDefault(); // Halang submit
-        return false;
-      }
-
-      return true;
-    }
-  </script>
 </head>
 <body>
 <?php include("burger.php");?>
@@ -49,7 +30,8 @@ if (isset($_POST['submit'])) {
   <h1>Report</h1>
 </div>
 
-<div class="camera">
+<form>
+  <div class="camera">
   <div class="camera-container">
     <p class="addPhoto">Add Photo</p>
     <input type="file" name="picture" id="picture" />
@@ -58,7 +40,7 @@ if (isset($_POST['submit'])) {
   <div class="report-section-form">
     <h2 class="addReport">Add Report</h2>
 
-    <form action="report.php" method="POST" onsubmit="return validateForm(event)">
+    <form id="form1" name="form1" action="member.php" enctype="multipart/form-data" method="POST">
       <!-- Report Text -->
       <input type="text" id="reportInput" name="report_text" placeholder="Text" class="report-input" />
 
@@ -82,6 +64,7 @@ if (isset($_POST['submit'])) {
       <button type="submit" class="send-button" name="submit">Send</button>
     </form>
   </div>
+</form>
 </div>
 </body>
 </html>
