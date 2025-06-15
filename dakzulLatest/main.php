@@ -57,7 +57,7 @@ main {
     <nav class="bawah">
       <h2>General</h2>
       <div class="button-group">
-        <a class="select" href="makeReport1.php">Report</a>
+        <a class="select" href="../adminfile/report.php">Report</a>
         <a class="select" href="community.php">Community</a>
         <a class="select" href="#">Admin</a>
       </div>

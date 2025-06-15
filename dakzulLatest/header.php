@@ -100,7 +100,7 @@ img{
       </ul>
     </div>
     <nav class="topnav">
-      <a href="main.php">Home</a>
+      <a href="../dakzulLatest/homepage.php">Home</a>
       <div class="nav-right">
         <a href="makeReport.php">Profile</a>
         <a href="#"><img src="user.png" alt="User" class="user"></a>
