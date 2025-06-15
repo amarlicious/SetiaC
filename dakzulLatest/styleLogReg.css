@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+.container {
+  width: 90%;
+  display: flex;
+}
+.kiri {
+  flex: 1;
+  background-size: cover;
+}
+.kanan {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+h2 {
+  color: #5b5fef;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+th, td{
+  padding-bottom: 8px;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+}
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #5b5fef;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.center a{
+  margin-top: 20px;
+  color: #5b5fef;
+  text-decoration: none;
+}
+table {
+  width: 100%;
+}
+th, td{
+  padding-bottom: 8px;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  font-size: 14px;
+}
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #5b5fef;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.center a{
+  margin-top: 20px;
+  color: #5b5fef;
+  text-decoration: none;
+}
+td[colspan="2"] label {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #444;
+}
