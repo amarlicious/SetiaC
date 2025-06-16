@@ -51,7 +51,7 @@ main {
 
 </style>
 </head>
-<?php include("header.php");  ?>
+<?php include("../header.php");  ?>
 <body>
   <main>
     <nav class="bawah">
@@ -63,6 +63,6 @@ main {
       </div>
     </nav>
   </main>
-<?php include("footer.php");  ?>
+<?php include("../footer.php");  ?>
 </body>
 </html>

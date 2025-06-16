@@ -5,16 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Header</title>
   <style>
-    *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-} 
-.tagline {
+    * {
+      margin: 0;
+      padding: 0;
+    
+      
+    }
+
+    .head {
+     background-color: #7B61FF;
+     color: white;
+     padding: 20px;
+     display: flex;
+     align-items: center;
+     justify-content: flex-start; 
+     gap: 20px; 
+     font-family: Arial, sans-serif;
+}
+
+    #setia {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .tagline {
       display: flex;
       flex-direction: column;
-      margin-right: 1250px;
+
     }
 
     #stay {
@@ -47,49 +64,46 @@
     .no4 {
       color: orange;
     }
-nav a {
-  margin-left: 40px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-.topnav {
-  display: flex;
-  align-items: center;
-}
 
-.nav-right {
-  display: flex;
-  align-items: center;
-}
-    header {
-  background-color: #7B61FF;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-img{
-      display: block;
+
+    .nav
+    {
+        display: flex;
+        flex-direction:row ;
+        gap: 20px;
+        list-style-type: none;
+        justify-content: end;
+        margin-left: auto;
+        cursor: pointer;
+    } 
+
+    .nav li a
+    {
+        text-decoration: none;
+        color: white;
+
+    } 
+   
+
+    nav ul li a:hover
+    {
+        background: blue;
+        text-decoration: underline;
+
     }
-    #landscape {
-      width: 100%;
-      max-height: 350px;
-      object-fit: cover;
-      display: block;
+    
+    .menu
+    {
+        margin-left: auto;
     }
-    .user {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
+    
   </style>
 </head>
 <body>
-  <header class="header">
-      <h1>Setia</h1>
-      <div class="tagline">
+  <div class="head">
+    <h1 id="setia">Setia</h1>
+
+    <div class="tagline">
       <p id="stay">Stay Together. Stay Setia</p>
 
       <ul class="word">
@@ -98,17 +112,22 @@ img{
         <li class="no3">work</li>
         <li class="no4">play</li>
       </ul>
+
+   
     </div>
-    <nav class="topnav">
-      <a href="../dakzulLatest/homepage.php">Home</a>
-      <div class="nav-right">
-        <a href="makeReport.php">Profile</a>
-        <a href="#"><img src="user.png" alt="User" class="user"></a>
-      </div>
+
+     <nav class="menu">
+    <ul class="nav">
+
+    <li><a href="home.php">Home</a></li>
+    <li><a href="profile.php">Profile</a></li>
+    <li><a href="profile.php">History</a></li>
+
+    </ul>
     </nav>
-  </header>
-  <div>
-      <img src="landscape.png" id="landscape">
-    </div>
+  </div>
+
+
 </body>
 </html>
+
