@@ -17,7 +17,7 @@ if (isset($_SESSION['username']))
 <body>
   <section>
   <div class="container">
-    <div class="kiri"> <img src = "homepage.jpg" width="100%"></div>
+    <div class="kiri"> <img src = "../image/homepage.jpg" width="100%"></div>
     <div class="kanan">
     <div class="login-container">
       <h2>Sign In</h2>
