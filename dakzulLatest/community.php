@@ -74,24 +74,24 @@ main {
   </style>
 </head>
 <body>
-  <?php include("../header.php"); ?>
+  <?php include("header.php"); ?>
   <main>
     <section class="announcement-section">
       <h2>Community</h2>
         <div class="announcement">
-          <img src="../image/bell .png .png" alt="bell" id="bell">
+          <img src="bell (1).png" alt="bell" id="bell">
           <h3>No Announcement Yet!</h3>
         </div>
       </div>
     </section>
     <section class="community">
       <div class="user-info">
-        <img src="../image/user.png" alt="user" class="user">
+        <img src="user.png" alt="user" class="user">
         <h3>Issac</h3>
       </div>
-      <img src="../image/bilikIssac.png" alt="bilikIssac" id="bilik">
+      <img src="bilikIssac.png" alt="bilikIssac" id="bilik">
     </section>
   </main>
-<?php include("../footer.php"); ?>
+<?php include("footer.php"); ?>
 </body>
 </html>
