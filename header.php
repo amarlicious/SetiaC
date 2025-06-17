@@ -119,8 +119,8 @@
      <nav class="menu">
     <ul class="nav">
 
-    <li><a href="home.php">Home</a></li>
-    <li><a href="profile.php">Profile</a></li>
+    <li><a href="../dakzulLatest/index.php">Home</a></li>
+    <li><a href="../dakzulLatest/profile.php">Profile</a></li>
     <li><a href="profile.php">History</a></li>
 
     </ul>
