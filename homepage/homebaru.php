@@ -117,7 +117,7 @@
     <header>
         <div class="overlay"></div>
         <div class="btn-right">
-            <button onclick="location.href='signin.html'">Sign in</button>
+            <button onclick="location.href='index.php'">Sign in</button>
             <button onclick="location.href='register.html'">Register</button>
         </div>
         <div class="contentfirst">
