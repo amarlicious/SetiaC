@@ -80,13 +80,13 @@ if (!isset($_SESSION['username'])) {
         // 1. Semak input gambar (picture)
         if (pictureInput.files.length === 0) {
             isValid = false;
-            errorMessage += 'Sila muat naik gambar.<br>';
+            errorMessage += 'Please upload picture.<br>';
         }
 
         // 2. Semak input teks laporan (report_text)
         if (reportTextInput.value.trim() === '') {
             isValid = false;
-            errorMessage += 'Sila masukkan teks laporan.<br>';
+            errorMessage += 'Please insert report text.<br>';
         }
 
         // 3. Semak sekurang-kurangnya satu kategori dipilih
@@ -94,21 +94,21 @@ if (!isset($_SESSION['username'])) {
         for (let i = 0; i < categoryCheckboxes.length; i++) {
             if (categoryCheckboxes[i].checked) {
                 isCategorySelected = true;
-                break; // Keluar dari loop jika satu sudah dipilih
+                break; 
             }
         }
         if (!isCategorySelected) {
             isValid = false;
-            errorMessage += 'Sila pilih sekurang-kurangnya satu kategori.<br>';
+            errorMessage += 'Please insert atleast one category.<br>';
         }
 
-        // Jika borang tidak sah, halang penghantaran dan paparkan mesej ralat
+    
         if (!isValid) {
-            event.preventDefault(); // Halang borang daripada dihantar
+            event.preventDefault(); 
             validationMessage.innerHTML = errorMessage;
-            validationMessage.style.display = 'block'; // Tunjukkan mesej ralat
+            validationMessage.style.display = 'block'; 
         } else {
-            validationMessage.style.display = 'none'; // Sembunyikan mesej ralat jika sah
+            validationMessage.style.display = 'none'; 
         }
     });
 

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <?php include("../dakzulLatest/header.php"); ?>
+    <?php include("../header.php"); ?>
 
  
 <?php include("burger.php");  ?>

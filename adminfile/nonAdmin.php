@@ -14,7 +14,7 @@
 
   <div class="main-content">
     <div class="bulatan">
-      <img class="icon" src="no icon.jpeg" alt="no Icon" />
+      <img class="icon" src="../image/no icon.jpeg" alt="no Icon" />
     </div>
 
     <div class="text"><P>Sorry Only Admin Can Access This Feature</P></div>
