@@ -117,8 +117,8 @@
     <header>
         <div class="overlay"></div>
         <div class="btn-right">
-            <button onclick="location.href='index.php'">Sign in</button>
-            <button onclick="location.href='register.html'">Register</button>
+            <button onclick="location.href='../dakzulLatest/index.php'">Sign in</button>
+            <button onclick="location.href='../dakzulLatest/register.html'">Register</button>
         </div>
         <div class="contentfirst">
             <h1>See Something? Say Something. <span>SetiaC</span> Makes Reporting Easy. </h1>

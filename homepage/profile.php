@@ -1,4 +1,25 @@
+<?php
+session_start();
+include('../dakzulLatest/connect.php');
 
+
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+
+$username = $_SESSION['username'];
+
+$sql = "SELECT * FROM residence WHERE username = '$username'";
+$result = $conn->query($sql);
+
+if ($result->num_rows == 1) {
+    $user = $result->fetch_assoc();
+} else {
+    echo "<div class='message'>User not found.</div>";
+    exit();
+}
+?>
 
 
 <!DOCTYPE html>
@@ -63,20 +84,18 @@
        .info span {
            font-weight: bold;
         }
-         .edit-button {
-      background-color: #7B61FF;
-      color: white;
-      padding: 10px 25px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      display: block;
-      margin: 20px auto 0 auto;
-      font-size: 16px;
-    }
+        .edit-button {
+           background-color: #7B61FF;
+           color: white;
+           padding: 10px 25px;
+           border: none;
+           border-radius: 10px;
+           cursor: pointer;
+           display: block;
+           margin: 20px auto 0 auto;
+           font-size: 16px;
+        }
 
-
-       
     </style>
 </head>
 <body>
@@ -87,19 +106,21 @@
 
 <div class="partsatu">
   <div class="tajukpart">Account Info</div>
-    <img class="profilepart" src="<?php echo $user['profile_pic']; ?>" alt="Profile Picture">
+
+    <img class="profilepart" src="<?php echo $user['picture']; ?>" alt="Profile Picture">
 
     <div class="change-profile"><a href="change_profile.php?id=<?php echo $user_id; ?>">Change Profile</a></div>
 
-    <div class="info">
-      <p><span>Full Name:</span> 
-      <p><span>Email:</span> 
-      <p><span>Contact:</span> 
-      <p><span>Address:</span> 
-    </div>
-
-    <button class="edit-button" onclick="window.location.href='edit_profile.php?id=<?php echo $user_id; ?>'">Edit</button>
+ 
+  <div class="info">
+    <p><span>Full Name:</span> <?= htmlspecialchars($user['fullname']) ?></p>
+    <p><span>Email:</span> <?= htmlspecialchars($user['email']) ?></p>
+    <p><span>Contact:</span> <?= htmlspecialchars($user['contact']) ?></p>
+    <p><span>Address:</span> <?= htmlspecialchars($user['address']) ?></p>
   </div>
+
+  <a href="edit_profile.php" class="edit-button">Edit</a>
+</div>
 
 </body>
 </html>
