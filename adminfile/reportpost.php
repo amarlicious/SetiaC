@@ -3,7 +3,7 @@ session_start();
 require_once '../dakzulLatest/connect.php'; 
 
 if (!isset($_SESSION['username'])) { 
-    echo "Akses ditolak. Sila log masuk.";
+    echo "Access Denied. please log in.";
     echo "<meta http-equiv='refresh' content='3; URL=index.php'>"; 
     exit();
 }
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
     }
 
     if ($user_id === null) {
-        echo "Ralat: User ID tidak ditemui untuk username ini. Sila log masuk semula.";
+        echo "Fail: User ID not find. Please log in again.";
         echo "<meta http-equiv='refresh' content='3; URL=index.php'>";
         exit();
     }
@@ -60,13 +60,13 @@ if (isset($_POST['submit'])) {
             if (move_uploaded_file($file_tmp_name, $destination)) {
                 $image_path = $destination;
             } else {
-                echo "Gagal memuat naik gambar.<br>";
+                echo "Fail to upload picture.<br>";
             }
         } else {
-            echo "Format fail tidak dibenarkan. Sila muat naik JPEG, JPG, PNG atau GIF.<br>";
+            echo "File format restricted. Please upload JPEG, JPG, PNG or GIF.<br>";
         }
     } else if (isset($_FILES['picture']) && $_FILES['picture']['error'] !== UPLOAD_ERR_NO_FILE) {
-        echo "Ralat muat naik gambar: " . $_FILES['picture']['error'] . "<br>";
+        echo "Fail to upload picture: " . $_FILES['picture']['error'] . "<br>";
     }
 
     $sql_insert_report = "INSERT INTO reports (user_id, report_text, category, image_path) VALUES (?, ?, ?, ?)";
@@ -90,19 +90,19 @@ if (isset($_POST['submit'])) {
             // BUANG BARIS INI: echo "Laporan berjaya dihantar!";
             // BUANG BARIS INI: echo "<meta http-equiv='refresh' content='3; URL=reportSubmit.php'>";
         } else {
-            echo "Ralat ketika menghantar laporan: " . $stmt_insert->error;
+            echo "Failed to send report: " . $stmt_insert->error;
         }
 
         $stmt_insert->close();
     } else {
-        echo "Ralat penyediaan statement laporan: " . $conn->error;
+        echo "Failed to send report: " . $conn->error;
     }
 
     $conn->close();
 
 } else {
-    echo "Akses ditolak. Borang tidak dihantar.";
-    echo "<meta http-equiv='refresh' content='3; URL=report.php'>";
+    echo "Access denied. Form cannot be send.";
+    echo "<meta http-equiv='refresh' content='2 ; URL=report.php'>";
     exit();
 }
 ?>
