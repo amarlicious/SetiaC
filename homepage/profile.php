@@ -102,6 +102,14 @@ if ($result->num_rows == 1) {
            text-decoration: none;
            text-align: center;
         }
+        #role
+        {
+            color: gold;
+        }
+        #role1
+        {
+            color:white;
+        }
 
     </style>
 </head>
@@ -109,7 +117,7 @@ if ($result->num_rows == 1) {
 
 <div class="header">
     <h1 id="text">Profile</h1>
-    <p><span>Role: </span><?=htmlspecialchars(string: $user['role'])?></p>
+    <p id="role"><span id="role1" >ROLE:</span><?=htmlspecialchars(string: $user['role'])?></p>
 </div>
 
 <div class="partsatu">
