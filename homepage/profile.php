@@ -31,6 +31,7 @@ if ($result->num_rows == 1) {
             font-family: Arial;
             background: #f2f2f7; 
             margin:0;
+        
         }
         .header {
             background-color: #7B61FF;
@@ -53,7 +54,8 @@ if ($result->num_rows == 1) {
         .partsatu{
             max-width: 500px;
             margin: 40px auto;
-            background: white; padding: 20px;
+            background: white; 
+            padding: 20px;
             border-radius: 10px;
             border: 1px solid grey;
         }
@@ -72,7 +74,7 @@ if ($result->num_rows == 1) {
            
         }
 
-         .info {
+        .info {
             margin-top: 20px;
             border: 1px solid grey;
         }

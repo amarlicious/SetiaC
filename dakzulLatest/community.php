@@ -74,7 +74,7 @@ main {
   </style>
 </head>
 <body>
-  <?php include("header.php"); ?>
+  <?php include("../header.php"); ?>
   <main>
     <section class="announcement-section">
       <h2>Community</h2>
@@ -92,6 +92,6 @@ main {
       <img src="bilikIssac.png" alt="bilikIssac" id="bilik">
     </section>
   </main>
-<?php include("footer.php"); ?>
+<?php include("../footer.php"); ?>
 </body>
 </html>

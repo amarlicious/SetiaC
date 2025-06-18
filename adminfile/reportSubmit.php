@@ -25,6 +25,8 @@ if (isset($_GET['report_id'])) {
             FROM reports r 
             JOIN residence res ON r.user_id = res.id 
             WHERE r.report_id = ?"; 
+    
+    
 
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("i", $report_id); // 'i' untuk integer (report_id)

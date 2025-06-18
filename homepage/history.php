@@ -11,6 +11,7 @@ if (!isset($_SESSION['username'])) {
 
 $username = $_SESSION['username'];
 $report_list = [];
+$total_reports = 0;
 
 // Dapatkan semua laporan oleh pengguna yang log masuk
 $sql = "SELECT r.*, res.username AS reporter_username 
@@ -27,6 +28,10 @@ if ($stmt = $conn->prepare($sql)) {
     while ($row = $result->fetch_assoc()) {
         $report_list[] = $row;
     }
+
+    // Kira jumlah laporan
+    $total_reports = count($report_list);
+
     $stmt->close();
 } else {
     echo "<p style='color: red; text-align: center;'>Ralat pangkalan data: " . $conn->error . "</p>";
@@ -76,10 +81,17 @@ $conn->close();
         .center-text {
             text-align: center;
         }
-        h2 {
+        h2, h3 {
             text-align: center;
             color: #333;
-            padding-top: 20px;
+        }
+        .status-pending {
+            color: orange;
+            font-weight: bold;
+        }
+        .status-solved {
+            color: green;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -91,6 +103,7 @@ $conn->close();
     <div class="main-content">
         <?php if (!empty($report_list)): ?>
             <h2 class="center-text">All Your Reports</h2>
+            <h3 class="center-text">Total Reports Submitted: <?= $total_reports ?></h3>
             <?php foreach ($report_list as $report): ?>
                 <div class="report-summary">
                     <p><strong>Report's ID:</strong> <span><?= htmlspecialchars($report['report_id']) ?></span></p>
@@ -98,9 +111,11 @@ $conn->close();
                     <p><strong>Date:</strong> <span><?= htmlspecialchars(date('d M Y, H:i A', strtotime($report['report_date']))) ?></span></p>
                     <p><strong>Category:</strong> <span><?= htmlspecialchars($report['category']) ?></span></p>
                     <p><strong>Report:</strong> <span><?= nl2br(htmlspecialchars($report['report_text'])) ?></span></p>
-                    <p><strong>Status:</strong> <span style="color: <?= ($report['status'] == 'Solved') ? 'green' : 'orange'; ?>;">
-                    <?= htmlspecialchars($report['status']) ?>
-                    </span></p>
+                    <p><strong>Status:</strong> 
+                        <span class="<?= ($report['status'] == 'Solved') ? 'status-solved' : 'status-pending'; ?>">
+                            <?= htmlspecialchars($report['status']) ?>
+                        </span>
+                    </p>
                     <?php if (!empty($report['image_path'])): ?>
                         <p><strong>Picture:</strong></p>
                         <img src="<?= htmlspecialchars($report['image_path']) ?>" alt="Report Image" class="report-image" />

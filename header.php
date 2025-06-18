@@ -121,7 +121,7 @@
 
     <li><a href="../dakzulLatest/main.php">Home</a></li>
     <li><a href="../homepage/profile.php">Profile</a></li>
-    <li><a href="../homepage/profile.php">History</a></li>
+    <li><a href="../homepage/history.php">History</a></li>
 
     </ul>
     </nav>
