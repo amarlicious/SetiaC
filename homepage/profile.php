@@ -31,6 +31,7 @@ if ($result->num_rows == 1) {
             font-family: Arial;
             background: #f2f2f7; 
             margin:0;
+        
         }
         .header {
             background-color: #7B61FF;
@@ -53,7 +54,8 @@ if ($result->num_rows == 1) {
         .partsatu{
             max-width: 500px;
             margin: 40px auto;
-            background: white; padding: 20px;
+            background: white; 
+            padding: 20px;
             border-radius: 10px;
             border: 1px solid #ddd;
         }
@@ -67,12 +69,14 @@ if ($result->num_rows == 1) {
             max-width: 500px;
             margin: 30px auto;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 20px;
             border: 1px solid #d6ccff;
             box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            align-items: center;
+            
         }
 
-         .info {
+        .info {
             margin-top: 20px;
         }
 
@@ -89,11 +93,14 @@ if ($result->num_rows == 1) {
            color: white;
            padding: 10px 25px;
            border: none;
-           border-radius: 10px;
+           border-radius: 20px;
            cursor: pointer;
            display: block;
            margin: 20px auto 0 auto;
-           font-size: 16px;
+           font-size: 20px;
+           text-align: center;
+           width: 200px;
+         
         }
 
     </style>
