@@ -1,122 +1,109 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-     font-family: 'Inter', sans-serif; 
-}
-
+/* Global Reset & Base */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Layout */
 .main-wrapper {
     display: flex;
     height: 100vh;
 }
 
+/* Sidebar */
 .admin-sidebar {
-    width: 15vw;
-    height: 100vh;
-    background-color:  rgb(235, 235, 235);
-    padding-top: 20px;
-    background: #FFFFFFFF;
-    border-radius: 0px;
-    box-shadow: 0px 8px 17px #171a1f26, 0px 0px 2px #171a1f1F;
+    width: 220px;
+    background-color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
 }
 
-.admin {
+.admin-sidebar .admin {
     text-align: center;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
-    padding-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-ul {
-    padding: 0;
-    list-style-type: none;
+.admin-sidebar ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    width: 100%;
+    gap: 15px;
 }
 
-li {
-    cursor: pointer;
-    box-sizing: border-box;
-    padding: 10px 20px;
-    width: 100%;
+.admin-sidebar li {
+    padding: 12px 20px;
 }
 
-#Home a 
-{
+.admin-sidebar a {
     text-decoration: none;
-    color: black;
+    color: #333;
+    display: block;
     width: 100%;
-    box-sizing: border-box;
-
+    transition: background 0.2s, color 0.2s;
 }
 
-#Report a
-{
-     text-decoration: none;
-    color: black;
-    width: 100%;
-    box-sizing: border-box;
+.admin-sidebar a:hover {
+    background-color: #f0f0f0;
+    color: #007BFF;
+    border-radius: 6px;
 }
 
-#setting a {
-    text-decoration: none;
-    color: black;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#message a
-{
-    text-decoration: none;
-    color: black;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-li:hover {
-    background-color: whitesmoke;
-}
-
-
-.container {
-
-display: flex;
-}
-
-div h1
-{
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin: 0;
-
-}
-
-.search 
-{
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  width: 100%;
-  max-width: 300px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.bawah-admin
-{
-        background: #FFFFFFFF;
-    border-radius: 36px;
-    box-shadow: 0px 8px 17px rgba(23, 26, 31, 0.15),
-                0px 0px 2px rgba(23, 26, 31, 0.12);
+/* Main Content */
+.sebelah-admin {
     flex-grow: 1;
+    padding: 40px;
+    background-color: #fafafa;
+}
+
+.meseej {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 250px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.search-form button {
+    padding: 10px 16px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Content Box */
+.bawah-admin {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     padding: 25px;
+    margin-top: 30px;
 }

@@ -109,17 +109,16 @@ if ($result->num_rows == 1) {
 
     <img class="profilepart" src="<?php echo $user['picture']; ?>" alt="Profile Picture">
 
-    <div class="change-profile"><a href="change_profile.php?id=<?php echo $user_id; ?>">Change Profile</a></div>
+    <div class="edit-button"><a href="change_profile.php?id=<?php echo $user_id; ?>">Change Profile</a></div>
 
  
   <div class="info">
-    <p><span>Full Name:</span> <?= htmlspecialchars($user['fullname']) ?></p>
+    <p><span>Full Name:</span> <?= htmlspecialchars($user['name']) ?></p>
     <p><span>Email:</span> <?= htmlspecialchars($user['email']) ?></p>
-    <p><span>Contact:</span> <?= htmlspecialchars($user['contact']) ?></p>
-    <p><span>Address:</span> <?= htmlspecialchars($user['address']) ?></p>
+    <p><span>Contact:</span> <?= htmlspecialchars($user['phone']) ?></p>
   </div>
 
-  <a href="edit_profile.php" class="edit-button">Edit</a>
+  <a href="edit.php" class="edit-button">Edit</a>
 </div>
 
 </body>

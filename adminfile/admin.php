@@ -39,7 +39,7 @@
             ?>
         </div>
 
-        <div class="bawah-admin">0</div>
+        <div class="bawah-admin"></div>
     </div>
 
 </body>
