@@ -1,52 +1,63 @@
 <?php
 session_start();
-include('../dakzulLatest/connect.php'); // Adjust path as needed
+include('../dakzulLatest/connect.php'); 
 
-// Check if the user is logged in
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
 }
 
 $username = $_SESSION['username'];
-$message = ''; // To store success or error messages
 
-// Fetch current user data
 $sql = "SELECT * FROM residence WHERE username = '$username'";
 $result = $conn->query($sql);
 
 if ($result->num_rows == 1) {
     $user = $result->fetch_assoc();
 } else {
-    $message = "<div class='message'>User not found.</div>";
-    // Optionally redirect or handle this error more gracefully
+    echo "<div class='message'>User not found.</div>";
     exit();
 }
 
-// Handle form submission for updating profile
+$message = "";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Sanitize and validate input
     $fullname = htmlspecialchars($_POST['fullname']);
     $email = htmlspecialchars($_POST['email']);
     $phone = htmlspecialchars($_POST['phone']);
 
-    // Update data in the database
-    $update_sql = "UPDATE residence SET name = ?, email = ?, phone = ? WHERE username = ?";
+
+    $picture = $user['picture']; 
+
+    if (isset($_FILES['picture']) && $_FILES['picture']['error'] == 0) {
+        $target_dir = "../uploads/";
+        $file_name = basename($_FILES["picture"]["name"]);
+        $target_file = $target_dir . time() . "_" . $file_name;
+
+        if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
+            $picture = $target_file;
+        }
+    }
+
+    $update_sql = "UPDATE residence SET name = ?, email = ?, phone = ?, picture = ? WHERE username = ?";
     $stmt = $conn->prepare($update_sql);
-    $stmt->bind_param("ssss", $fullname, $email, $phone, $username);
+    $stmt->bind_param("sssss", $fullname, $email, $phone, $picture, $username);
 
     if ($stmt->execute()) {
         $message = "<div class='success-message'>Profile updated successfully!</div>";
-        // Update the $user array so the form displays the new data immediately
+
+    
         $user['name'] = $fullname;
         $user['email'] = $email;
         $user['phone'] = $phone;
+        $user['picture'] = $picture;
     } else {
         $message = "<div class='error-message'>Error updating profile: " . $conn->error . "</div>";
     }
     $stmt->close();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -106,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            box-sizing: border-box; /* Ensures padding doesn't increase total width */
+            box-sizing: border-box; 
         }
         .buttons {
             display: flex;
@@ -119,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
-            text-decoration: none; /* For the back button acting as a link */
+            text-decoration: none; 
             text-align: center;
             display: inline-block;
         }
@@ -144,13 +155,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             text-align: center;
         }
         .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background-color:white;
+            color:green;
+            border: 1px solid white;
         }
         .error-message {
             background-color: #f8d7da;
-            color: #721c24;
+            color:brown;
             border: 1px solid #f5c6cb;
         }
     </style>
@@ -168,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?= $message ?>
     <?php endif; ?>
 
-    <form action="edit.php" method="POST">
+    <form action="edit.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="fullname">Full Name:</label>
             <input type="text" id="fullname" name="fullname" value="<?= htmlspecialchars($user['name']) ?>" required>
@@ -180,14 +191,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="form-group">
-            <label for="phone">Contact:</label>
+            <label for="phone">Phone no:</label>
             <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($user['phone']) ?>" required>
+        </div>
+
+        <div class="form-group" enctype="multipart/form-data">
+            <label for="Picture">Picture:</label>
+             <input type="file" name="picture" id="picture" >
+
         </div>
 
         <div class="buttons">
             <button type="submit" class="save-button">Save Changes</button>
             <a href="profile.php" class="back-button">Back to Profile</a>
         </div>
+        
+      
     </form>
 </div>
 

@@ -55,7 +55,7 @@ if ($result->num_rows == 1) {
             margin: 40px auto;
             background: white; padding: 20px;
             border-radius: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid grey;
         }
         .tajukpart{
             font-weight: bold;
@@ -64,16 +64,17 @@ if ($result->num_rows == 1) {
         }
         .profilepart {
             background-color: white;
-            max-width: 500px;
+            max-width: 400px;
             margin: 30px auto;
             padding: 30px;
             border-radius: 10px;
-            border: 1px solid #d6ccff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            border: 1px solid grey;
+           
         }
 
          .info {
             margin-top: 20px;
+            border: 1px solid grey;
         }
 
        .info p {
@@ -84,16 +85,20 @@ if ($result->num_rows == 1) {
        .info span {
            font-weight: bold;
         }
-        .edit-button {
+ 
+
+        .edit-button
+        {
            background-color: #7B61FF;
            color: white;
            padding: 10px 25px;
-           border: none;
            border-radius: 10px;
            cursor: pointer;
            display: block;
-           margin: 20px auto 0 auto;
+           margin: 20px auto ;
            font-size: 16px;
+           text-decoration: none;
+           text-align: center;
         }
 
     </style>
@@ -102,6 +107,7 @@ if ($result->num_rows == 1) {
 
 <div class="header">
     <h1 id="text">Profile</h1>
+    <p><span>Role: </span><?=htmlspecialchars(string: $user['role'])?></p>
 </div>
 
 <div class="partsatu">
@@ -109,9 +115,6 @@ if ($result->num_rows == 1) {
 
     <img class="profilepart" src="<?php echo $user['picture']; ?>" alt="Profile Picture">
 
-    <div class="edit-button"><a href="change_profile.php?id=<?php echo $user_id; ?>">Change Profile</a></div>
-
- 
   <div class="info">
     <p><span>Full Name:</span> <?= htmlspecialchars($user['name']) ?></p>
     <p><span>Email:</span> <?= htmlspecialchars($user['email']) ?></p>
@@ -119,6 +122,7 @@ if ($result->num_rows == 1) {
   </div>
 
   <a href="edit.php" class="edit-button">Edit</a>
+  <a href="../dakzulLatest/login.php" class="edit-button">Home</a>
 </div>
 
 </body>

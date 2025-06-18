@@ -56,7 +56,7 @@ if (!isset($_SESSION['username'])) {
                 <label class="checkbox-item"><input type="checkbox" name="site[]" value="Other" class="category-checkbox" /> Others</label>
             </div>
 
-            <!-- Div untuk memaparkan mesej ralat JavaScript -->
+            
             <div id="validationMessage" class="error-message"></div>
 
             <button type="submit" class="send-button" name="submit">Send</button>
