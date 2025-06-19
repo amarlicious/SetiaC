@@ -1,58 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<style>
-.message{
-  color: red;
-  background-color: #f9d6d5;
-  padding: 12px 20px;
-  margin: 20px auto;
-  width: fit-content;
-  border: 1px solid #d9534f;
-  border-radius: 6px;
-  font-weight: bold;
-  font-family: 'Segoe UI', sans-serif;
-}
-</style>
-<body>
-</body>
-</html>
 <?php
 session_start();
 include('connect.php');
 
-if(!isset($_SESSION['username'])&& $_SERVER['REQUEST_METHOD'] == 'POST'){
-    $_SESSION['username'] = $_POST['username'];
-    $_SESSION['password'] = $_POST['password'];
-}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Dapatkan input dari form
+    $username = $_POST['username'];
+    $input_password = $_POST['password'];
 
-if(isset($_SESSION['username'], $_SESSION['password'])){
-    $username = $_SESSION['username'];
-    $input_password = $_SESSION['password'];
-
-    $sql = "SELECT * FROM residence WHERE username='$username'";
+    // Cari pengguna dalam DB
+    $sql = "SELECT * FROM residence WHERE username = '$username'";
     $result = $conn->query($sql);
 
-    if($result->num_rows == 1){
+    if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
-        if(password_verify($input_password, $user['password'])){
-            include("main.php");
-        }   else{
-            echo "<div class= 'message'>Login Fail: Wrong password</div>";
-            session_unset();
-            echo "<meta http-equiv='refresh' content='3;URL=index.php'>";
+        // Semak password yang dimasukkan
+        if (password_verify($input_password, $user['password'])) {
+            // Simpan info user ke session
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
+
+            // Redirect ikut role
+            if ($user['role'] === 'admin') {
+                header("Location: main.php");
+                exit();
+            } else if ($user['role'] === 'User') {
+                header("Location: ../fileUser/mainUser.php");
+                exit();
+            }
+        } else {
+            // Password salah
+            $error = "Login Fail: Wrong password";
         }
-    }else{
-        echo "<div class= 'message'>Login Fail: Username doesn't exist</div>";
-        session_unset();
-        echo "<meta http-equiv='refresh' content='3;URL=index.php'>";
+    } else {
+        // Username tak wujud
+        $error = "Login Fail: Username doesn't exist";
     }
 }
-$conn->close();
 
+$conn->close();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Response</title>
+  <style>
+    .message {
+      color: red;
+      background-color: #f9d6d5;
+      padding: 12px 20px;
+      margin: 20px auto;
+      width: fit-content;
+      border: 1px solid #d9534f;
+      border-radius: 6px;
+      font-weight: bold;
+      font-family: 'Segoe UI', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <?php if (!empty($error)): ?>
+    <div class="message"><?= htmlspecialchars($error) ?></div>
+    <meta http-equiv="refresh" content="3;URL=index.php">
+  <?php endif; ?>
+</body>
+</html>

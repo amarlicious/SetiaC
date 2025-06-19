@@ -134,7 +134,7 @@ if ($result->num_rows == 1) {
   </div>
 
   <a href="edit.php" class="edit-button">Edit</a>
-  <a href="../dakzulLatest/login.php" class="edit-button">Home</a>
+  <a href="../fileUser/mainUser.php" class="edit-button">Home</a>
 </div>
 
 </body>
