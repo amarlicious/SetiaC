@@ -17,7 +17,7 @@ main {
   margin: 0 auto;
 }
 .announcement-section h2 {
-  background-color: #8c8cff;
+  background-color: #7B61FF;
   color: white;
   text-align: center;
   padding: 15px;
@@ -71,25 +71,47 @@ main {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+ 
+        .header {
+            background-color: #7B61FF;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; 
+            gap: 20px; 
+            font-family: Arial, sans-serif;
+        }
+       #text {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
   </style>
 </head>
 <body>
-  <?php include("../header.php"); ?>
+  <?php include("../adminfile/burger.php"); ?>
+  <div class="header">
+    <h1 id="text">Community</h1>
+    
+</div>
   <main>
     <section class="announcement-section">
       <h2>Community</h2>
         <div class="announcement">
-          <img src="bell (1).png" alt="bell" id="bell">
+          <img src="../image/bell.png" alt="bell" id="bell">
           <h3>No Announcement Yet!</h3>
         </div>
       </div>
     </section>
     <section class="community">
       <div class="user-info">
-        <img src="user.png" alt="user" class="user">
+        <img src="../image/user.png" alt="user" class="user">
         <h3>Issac</h3>
       </div>
-      <img src="bilikIssac.png" alt="bilikIssac" id="bilik">
+      <img src="../image/bilikIssac.png" alt="bilikIssac" id="bilik">
     </section>
   </main>
 <?php include("../footer.php"); ?>
