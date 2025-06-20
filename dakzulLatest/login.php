@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $input_password = $_POST['password'];
 
-    // 1. Semak dalam table admin dulu
+    // 1. Semak dalam table admin
     $sqlAdmin = "SELECT * FROM admin WHERE username = '$username'";
     $resultAdmin = $conn->query($sqlAdmin);
 

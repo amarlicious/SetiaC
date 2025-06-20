@@ -109,7 +109,33 @@ if ($result->num_rows == 1) {
             font-weight: bold;
             font-size: 20px;           
         }
-    
+
+ 
+    #logout-button {
+    background-color:red;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block; 
+    margin: 5px; 
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+#logout-button:hover {
+    background-color: red;
+}
+
+.content
+{
+    text-align: center;
+    padding: 0;
+}
 
     </style>
 </head>
@@ -135,6 +161,10 @@ if ($result->num_rows == 1) {
 
   <a href="edit.php" class="edit-button">Edit</a>
   <a href="../fileUser/mainUser.php" class="edit-button">Home</a>
+</div>
+
+<div class="content">
+    <a href="../dakzulLatest/logout.php" id="logout-button">Log Out</a>
 </div>
 
 </body>
