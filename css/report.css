@@ -65,6 +65,7 @@ html, body {
     max-width: 500px;
     padding: 20px 0;
     box-sizing: border-box;
+    
 }
 
 .addReport {
@@ -78,7 +79,7 @@ html, body {
 .report-input {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 8px;
     font-size: 1em;
     box-sizing: border-box;
@@ -212,3 +213,11 @@ html, body {
   text-align: center;
   align-items: center;
 }
+    .report_box {
+    background-color: #f9f9f9;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px grey;
+  }

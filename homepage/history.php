@@ -130,7 +130,7 @@ $conn->close();
     </div>
 
     <div class="center-text">
-        <a href="../dakzulLatest/login.php"><button class="home-button">Home</button></a>
+        <a href="../fileUser/mainUser.php"><button class="home-button">Home</button></a>
     </div>
 </body>
 </html>

@@ -51,15 +51,17 @@ main {
 
 </style>
 </head>
-<?php include("../header.php");  ?>
+<?php include("../headerUser.php");  ?>
 <body>
+  <img src="../image/home.png" width="100%" height="450px">
   <main>
     <nav class="bawah">
       <h2>General</h2>
       <div class="button-group">
-        <a class="select" href="../adminfile/report.php">Report</a>
+        <a class="select" href="../fileUser/reportUser.php">Report</a>
         <a class="select" href="community.php">Community</a>
         <a class="select" href="../adminfile/admin.php">Admin</a>
+        <a class="select" href="../dakzulLatest/feedback.php">Feedback</a>
       </div>
     </nav>
   </main>

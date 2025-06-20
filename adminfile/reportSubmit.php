@@ -140,7 +140,7 @@ $conn->close();
     </div>
     
     <div>
-        <a href="../dakzulLatest/login.php"><button class="home-button">Home</button></a>
+        <a href="../dakzulLatest/main.php"><button class="home-button">Home</button></a>
     </div>
 
 </body>

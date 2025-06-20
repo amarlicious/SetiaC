@@ -28,6 +28,14 @@ if (!isset($_SESSION['username'])) {
             font-weight: bold;
             display: none; /* Sembunyikan secara lalai */
         }
+    .report_box {
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px grey;
+  }
     </style>
 </head>
 <body>
@@ -37,7 +45,8 @@ if (!isset($_SESSION['username'])) {
     <h1>Report</h1>
 </div>
 
-<form id="form1" action="reportpost.php" enctype="multipart/form-data" method="POST">
+<div class="report-box">
+    <form id="form1" action="reportpost.php" enctype="multipart/form-data" method="POST">
     <div class="camera">
         <div class="camera-container">
             <p class="addPhoto">Add Photo</p>
@@ -63,6 +72,7 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
 </form>
+</div>
 
 <script>
     // Dapatkan elemen borang
