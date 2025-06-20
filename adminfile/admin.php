@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Jika tiada sesi atau bukan admin, halang akses
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header("Location: nonAdmin.php"); // Sesuaikan path ikut kedudukan fail
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

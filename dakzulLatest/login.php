@@ -3,38 +3,45 @@ session_start();
 include('connect.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Dapatkan input dari form
     $username = $_POST['username'];
     $input_password = $_POST['password'];
 
-    // Cari pengguna dalam DB
-    $sql = "SELECT * FROM residence WHERE username = '$username'";
-    $result = $conn->query($sql);
+    // 1. Semak dalam table admin dulu
+    $sqlAdmin = "SELECT * FROM admin WHERE username = '$username'";
+    $resultAdmin = $conn->query($sqlAdmin);
 
-    if ($result && $result->num_rows === 1) {
-        $user = $result->fetch_assoc();
+    if ($resultAdmin && $resultAdmin->num_rows === 1) {
+        $admin = $resultAdmin->fetch_assoc();
 
-        // Semak password yang dimasukkan
-        if (password_verify($input_password, $user['password'])) {
-            // Simpan info user ke session
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
+        if (password_verify($input_password, $admin['password'])) {
+            $_SESSION['username'] = $admin['username'];
+            $_SESSION['role'] = 'admin';
 
-            // Redirect ikut role
-            if ($user['role'] === 'admin') {
-                header("Location: main.php");
-                exit();
-            } else if ($user['role'] === 'User') {
-                header("Location: ../fileUser/mainUser.php");
-                exit();
-            }
+            header("Location: main.php"); // admin dashboard
+            exit();
         } else {
-            // Password salah
-            $error = "Login Fail: Wrong password";
+            $error = "Login Fail: Wrong password (admin)";
         }
     } else {
-        // Username tak wujud
-        $error = "Login Fail: Username doesn't exist";
+        // 2. Semak dalam table residence
+        $sqlUser = "SELECT * FROM residence WHERE username = '$username'";
+        $resultUser = $conn->query($sqlUser);
+
+        if ($resultUser && $resultUser->num_rows === 1) {
+            $user = $resultUser->fetch_assoc();
+
+            if (password_verify($input_password, $user['password'])) {
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = 'User';
+
+                header("Location: main.php"); // user dashboard
+                exit();
+            } else {
+                $error = "Login Fail: Wrong password (user)";
+            }
+        } else {
+            $error = "Login Fail: Username doesn't exist";
+        }
     }
 }
 
