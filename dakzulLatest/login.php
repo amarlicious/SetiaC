@@ -14,13 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
-        // Semak password yang dimasukkan
+       
         if (password_verify($input_password, $user['password'])) {
             // Simpan info user ke session
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
-            // Redirect ikut role
+          
             if ($user['role'] === 'admin') {
                 header("Location: main.php");
                 exit();
@@ -29,11 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit();
             }
         } else {
-            // Password salah
+            
             $error = "Login Fail: Wrong password";
         }
     } else {
-        // Username tak wujud
+        
         $error = "Login Fail: Username doesn't exist";
     }
 }
