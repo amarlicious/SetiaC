@@ -18,11 +18,12 @@ if (isset($_SESSION['username']))
 </head>
 <body>
   <section>
-  <div class="container">
+    <div class="container">
     <div class="kiri"> <img src = "image/homepage.jpg" width="100%"></div>
     <div class="kanan">
     <div class="login-container">
-      <h2>Sign In</h2>
+    <h2>Sign In</h2>
+
       <form action="login.php" method="POST">
         <table>
           <tr>
@@ -40,10 +41,11 @@ if (isset($_SESSION['username']))
           </tr>
         </table>
       </form>
+<!-- if user no acc -->
 	  <p class="center"><b>New user? <a href="register.html">Sign-up now..</a></b></p>
     </div>
-  </div>
-</div>
-</section>
+    </div>
+    </div>
+  </section>
 </body>
 </html>

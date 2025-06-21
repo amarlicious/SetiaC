@@ -28,21 +28,14 @@ if (!isset($_SESSION['username'])) {
             font-weight: bold;
             display: none; /* Sembunyikan secara lalai */
         }
-    .report-box {
-    background-color: #ffffff;
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px grey;
-  }
+    
     </style>
 </head>
 <body>
 <?php include("burger.php");?>
 
 <div class="head">
-    <h1>Report</h1>
+    <h1 id= text >Report</h1>
 </div>
 
 <div class="report-box">

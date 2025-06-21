@@ -1,82 +1,85 @@
  body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            background: linear-gradient(to right, #ece9ff, #ffffff);
-        }
-        header {
-            background-image: url('../image/home.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            height: 600px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: linear-gradient(to right, #ece9ff, #ffffff);
+}
 
-        .btn-right  { /*kedudukan luar button*/
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-         .btn-right button{ /*kedudukan dalaman button*/
-            margin-left: 10px;
-            padding: 8px 16px;
-            background-color: #7B61FF;
-            color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .btn-right button:hover { /*bilacursor atas button*/
-            background-color: #d50909;
-        }
+header {
+  background-image: url('../image/home.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+header .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /*kertas hitam*/
+  width: 100%;
+  height: 600px;
+}
+header .contentfirst {
+  position: relative;
+  z-index: 2;
+}
+header h1 {
+  font-size: 2em;
+}
+header h1 span {
+  color: #7B61FF;
+}  
 
-        header .overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5); /*lut hitam*/
-            width: 100%;
-            height: 600px;
-        }
-        header .contentfirst {
-            position: relative;
-            z-index: 2;
-        }
-        .subtext {
-        font-size: 1.2em;
-        color: #f0f0f0;
-        margin-top: 10px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-         header h1 {
-            font-size: 2em;
-        }
-         header h1 span {
-             color: #7B61FF;
-        } 
+.btn-right  { /*kedudukan luar button*/
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.btn-right button{ /*kedudukan dalaman button*/
+  margin-left: 10px;
+  padding: 8px 16px;
+  background-color: #7B61FF;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-right button:hover { /*bila cursor atas button*/
+  background-color: #d50909;
+}
 
-       section.about {
-       position: relative;
-       background: url('../image/gym2.jpg') center/cover no-repeat;
-       color: white;
-       padding: 160px 20px;
-       overflow: hidden;
-       text-align: center;
-    }
 
-    section.about .overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* lebih gelap = lebih kontras */
+.subtext {
+  font-size: 1.5em;
+  color: #7B61FF;
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+
+section.about {
+  position: relative;
+  background: url('../image/gym2.jpg') center/cover no-repeat;
+  color: white;
+  padding: 160px 20px;
+  overflow: hidden;
+  text-align: center;
+}
+
+section.about .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* lebih gelap = lebih kontras */
   z-index: 1;
   width: 100%;
   height: 100%;
 }
 
-.about-content {
+.aboutcontent {
   position: relative;
   z-index: 2;
   max-width: 800px;
@@ -87,22 +90,20 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   backdrop-filter: blur(5px); /* efek blur glass */
 }
-
-.about-content h4 {
-  font-size: 36px;
+.aboutcontent h4 {
+  font-size: 40px;
   margin-bottom: 20px;
-  color: #7B61FF; /* kuning lembut */
+  color: #7B61FF; 
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
-.about-content p {
-  font-size: 18px;
+.aboutcontent p {
+  font-size: 20px;
   line-height: 1.8;
   color: #f0f0f0;
 }
 
-    .cara {
+.cara {
   position: relative;
   background: url('../image/about.jpg') center/cover no-repeat;
   padding: 150px 20px;
@@ -111,11 +112,12 @@
   overflow: hidden;
 }
 
+
 .cara::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6); /* overlay gelap lut */
+  background: rgba(0, 0, 0, 0.6); /* overlay gelap  */
   z-index: 1;
 }
 
@@ -124,9 +126,8 @@
   z-index: 2;
   font-size: 2.5em;
   margin-bottom: 40px;
-  color: #7B61FF; /* supaya tajuk lebih menyerlah */
+  color: #7B61FF; 
 }
-
 .cara-container {
   position: relative;
   z-index: 2;
@@ -135,7 +136,6 @@
   gap: 20px;
   flex-wrap: wrap;
 }
-
 .carapart {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
@@ -146,14 +146,12 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
-
 .carapart:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 
-
-.info-section {
+.info {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -162,8 +160,7 @@
   background: linear-gradient(to right, #f1f4ff, #ffffff); /* Latar lembut */
   border-top: 4px solid #7B61FF; /* Garis atas sebagai pemisah */
 }
-
-.map-container {
+.mappart {
   flex: 1;
   min-width: 300px;
   height: 400px;
@@ -172,7 +169,7 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-.biz-info {
+.businessinfo {
   flex: 1;
   min-width: 300px;
   padding: 30px;
@@ -182,15 +179,8 @@
   border-radius: 12px;
 }
 
-.biz-info h2 {
+.businessinfo h2 {
   color: #654bd1;
   margin-bottom: 15px;
   font-size: 28px;
-}
-
-.biz-info p {
-  margin: 6px 0;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.6;
 }

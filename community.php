@@ -154,7 +154,7 @@ $stmt->close();
         ?>
       </div>
 
-      <form action="chat_process.php" method="POST" enctype="multipart/form-data">
+      <form action="chatprocess.php" method="POST" enctype="multipart/form-data">
         <textarea name="message" rows="3" placeholder="Type your message.." required></textarea><br>
         <input type="file" name="image" accept="image/*"><br>
         <button type="submit">Submit</button>
