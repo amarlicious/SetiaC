@@ -67,3 +67,27 @@ main {
   #picture {
     height: 350px;
   }
+
+</style>
+
+
+</head>
+<?php include("../header.php");  ?>
+<body>
+  <div>
+    <img src="../image/landscape.png" id="picture">
+    
+  </div>
+  <main>
+    <nav class="bawah">
+      <h2>General</h2>
+      <div class="button-group">
+        <a class="select" href="../adminfile/report.php">Report</a>
+        <a class="select" href="community.php">Community</a>
+        <a class="select" href="../adminFile/admin.php">Admin</a>
+      </div>
+    </nav>
+  </main>
+<?php include("../footer.php");  ?>
+</body>
+</html>

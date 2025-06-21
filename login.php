@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $admin['username'];
             $_SESSION['role'] = 'admin';
 
-            header("Location: main.php"); // admin dashboard
+            header("Location: main.php"); 
             exit();
         } else {
             $error = "Login Fail: Wrong password (admin)";
