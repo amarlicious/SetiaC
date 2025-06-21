@@ -28,8 +28,9 @@ if (!isset($_SESSION['username'])) {
             font-weight: bold;
             display: none; /* Sembunyikan secara lalai */
         }
-    .report-box {
-    background-color: #ffffff;
+
+    .report_box {
+    background-color: #f9f9f9;
     max-width: 800px;
     margin: 30px auto;
     padding: 30px;
@@ -39,13 +40,13 @@ if (!isset($_SESSION['username'])) {
     </style>
 </head>
 <body>
-<?php include("burger.php");?>
+<?php include("../adminfile/burgerUser.php");?>
 
 <div class="head">
     <h1>Report</h1>
 </div>
 
-<div class="report-box">
+<div class="report_box">
     <form id="form1" action="reportpost.php" enctype="multipart/form-data" method="POST">
     <div class="camera">
         <div class="camera-container">

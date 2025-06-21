@@ -13,7 +13,7 @@ $username = $_SESSION['username'];
 $sql = "SELECT * FROM residence WHERE username = '$username'";
 $result = $conn->query($sql);
 
-if ($result->num_rows == 1) {
+if ($result->num_rows == 0) {
     $user = $result->fetch_assoc();
 } else {
     echo "<div class='message'>User not found.</div>";
@@ -31,6 +31,7 @@ if ($result->num_rows == 1) {
             font-family: Arial;
             background: #f2f2f7; 
             margin:0;
+        
         }
         .header {
             background-color: #7B61FF;
@@ -53,9 +54,10 @@ if ($result->num_rows == 1) {
         .partsatu{
             max-width: 500px;
             margin: 40px auto;
-            background: white; padding: 20px;
+            background: white; 
+            padding: 20px;
             border-radius: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid grey;
         }
         .tajukpart{
             font-weight: bold;
@@ -64,16 +66,17 @@ if ($result->num_rows == 1) {
         }
         .profilepart {
             background-color: white;
-            max-width: 500px;
+            max-width: 400px;
             margin: 30px auto;
             padding: 30px;
             border-radius: 10px;
-            border: 1px solid #d6ccff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            border: 1px solid grey;
+           
         }
 
-         .info {
+        .info {
             margin-top: 20px;
+            border: 1px solid grey;
         }
 
        .info p {
@@ -84,17 +87,55 @@ if ($result->num_rows == 1) {
        .info span {
            font-weight: bold;
         }
-        .edit-button {
+ 
+
+        .edit-button
+        {
            background-color: #7B61FF;
            color: white;
            padding: 10px 25px;
-           border: none;
            border-radius: 10px;
            cursor: pointer;
            display: block;
-           margin: 20px auto 0 auto;
+           margin: 20px auto ;
            font-size: 16px;
+           text-decoration: none;
+           text-align: center;
         }
+        #role
+        {
+            color: black;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;           
+        }
+
+ 
+    #logout-button {
+    background-color:red;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block; 
+    margin: 5px; 
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+#logout-button:hover {
+    background-color: red;
+}
+
+.content
+{
+    text-align: center;
+    padding: 0;
+}
 
     </style>
 </head>
@@ -102,24 +143,29 @@ if ($result->num_rows == 1) {
 
 <div class="header">
     <h1 id="text">Profile</h1>
+    
 </div>
+<p id="role"><span" >Username: </span><?=htmlspecialchars(string: $user['username'])?></p>
+<p id="role"><span" >ROLE: </span><?=htmlspecialchars(string: $user['role'])?></p>
+
 
 <div class="partsatu">
   <div class="tajukpart">Account Info</div>
 
     <img class="profilepart" src="<?php echo $user['picture']; ?>" alt="Profile Picture">
 
-    <div class="change-profile"><a href="change_profile.php?id=<?php echo $user_id; ?>">Change Profile</a></div>
-
- 
   <div class="info">
-    <p><span>Full Name:</span> <?= htmlspecialchars($user['fullname']) ?></p>
+    <p><span>Full Name:</span> <?= htmlspecialchars($user['name']) ?></p>
     <p><span>Email:</span> <?= htmlspecialchars($user['email']) ?></p>
-    <p><span>Contact:</span> <?= htmlspecialchars($user['contact']) ?></p>
-    <p><span>Address:</span> <?= htmlspecialchars($user['address']) ?></p>
+    <p><span>Contact:</span> <?= htmlspecialchars($user['phone']) ?></p>
   </div>
 
-  <a href="edit_profile.php" class="edit-button">Edit</a>
+  <a href="edit.php" class="edit-button">Edit</a>
+  <a href="../dakzulLatest/main.php" class="edit-button">Home</a>
+</div>
+
+<div class="content">
+    <a href="../dakzulLatest/logout.php" id="logout-button">Log Out</a>
 </div>
 
 </body>

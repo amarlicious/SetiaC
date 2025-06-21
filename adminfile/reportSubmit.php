@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 // Sertakan fail koneksi database
@@ -25,6 +27,8 @@ if (isset($_GET['report_id'])) {
             FROM reports r 
             JOIN residence res ON r.user_id = res.id 
             WHERE r.report_id = ?"; 
+    
+    
 
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("i", $report_id); // 'i' untuk integer (report_id)
@@ -136,7 +140,7 @@ $conn->close();
     </div>
     
     <div>
-        <a href="../dakzulLatest/login.php"><button class="home-button">Home</button></a>
+        <a href="../dakzulLatest/main.php"><button class="home-button">Home</button></a>
     </div>
 
 </body>

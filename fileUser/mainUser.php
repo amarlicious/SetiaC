@@ -48,27 +48,17 @@ main {
   flex-wrap: wrap;         
   margin-top: 20px;
 }
-#picture
-{
-  width: 100%;
-  height: 500px;
-}
 
 </style>
 </head>
-<?php include("../header.php");  ?>
+<?php include("../headerUser.php");  ?>
 <body>
-  <div>
-    <img src="../image/home.png" id="picture">
-    
-  </div>
   <main>
     <nav class="bawah">
       <h2>General</h2>
       <div class="button-group">
-        <a class="select" href="../adminfile/report.php">Report</a>
+        <a class="select" href="../fileUser/reportUser.php">Report</a>
         <a class="select" href="community.php">Community</a>
-        <a class="select" href="../homepage/adminBaru.php">Admin</a>
       </div>
     </nav>
   </main>
