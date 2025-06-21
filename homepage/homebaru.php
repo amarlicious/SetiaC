@@ -54,11 +54,11 @@
             z-index: 2;
         }
         .subtext {
-  font-size: 1.2em;
-  color: #f0f0f0;
-  margin-top: 10px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
+        font-size: 1.2em;
+        color: #f0f0f0;
+        margin-top: 10px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
          header h1 {
             font-size: 2em;
         }
@@ -67,18 +67,18 @@
         } 
 
        section.about {
-  position: relative;
-  background: url('../image/gym2.jpg') center/cover no-repeat;
-  color: white;
-  padding: 160px 20px;
-  overflow: hidden;
-  text-align: center;
-}
+       position: relative;
+       background: url('../image/gym2.jpg') center/cover no-repeat;
+       color: white;
+       padding: 160px 20px;
+       overflow: hidden;
+       text-align: center;
+    }
 
-section.about .overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6); /* lebih gelap = lebih kontras */
+    section.about .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* lebih gelap = lebih kontras */
   z-index: 1;
   width: 100%;
   height: 100%;

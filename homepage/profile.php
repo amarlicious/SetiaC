@@ -13,7 +13,7 @@ $username = $_SESSION['username'];
 $sql = "SELECT * FROM residence WHERE username = '$username'";
 $result = $conn->query($sql);
 
-if ($result->num_rows == 0) {
+if ($result->num_rows == 1) {
     $user = $result->fetch_assoc();
 } else {
     echo "<div class='message'>User not found.</div>";
