@@ -48,11 +48,20 @@ main {
   flex-wrap: wrap;         
   margin-top: 20px;
 }
+#picture
+{
+  width: 100%;
+  height: 500px;
+}
 
 </style>
 </head>
 <?php include("../header.php");  ?>
 <body>
+  <div>
+    <img src="../image/home.png" id="picture">
+    
+  </div>
   <main>
     <nav class="bawah">
       <h2>General</h2>

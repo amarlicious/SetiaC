@@ -28,7 +28,7 @@ if (!isset($_SESSION['username'])) {
             font-weight: bold;
             display: none; /* Sembunyikan secara lalai */
         }
-    .report_box {
+    .report-box {
     background-color: #ffffff;
     max-width: 800px;
     margin: 30px auto;

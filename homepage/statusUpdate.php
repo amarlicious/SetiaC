@@ -67,6 +67,7 @@ $result = $conn->query($sql);
     <tr>
         <th>Name</th>
         <th>Residence ID</th>
+        <th>Report ID</th>
         <th>Description</th>
         <th>Status</th>
     </tr>
@@ -74,6 +75,7 @@ $result = $conn->query($sql);
     <tr>
         <td><?= htmlspecialchars($row['username']) ?></td>
         <td><?= htmlspecialchars($row['residence_id']) ?></td>
+        <td><?= htmlspecialchars($row['report_id']) ?></td>
         <td><?= htmlspecialchars($row['report_text']) ?></td>
         <td>
             <form method="POST">

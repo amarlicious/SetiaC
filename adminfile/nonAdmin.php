@@ -23,7 +23,7 @@
 </div>
 
 <div>
-     <button type="submit" class="home-button"><a href="../Project/home.php">Home</a></button>
+     <button type="submit" class="home-button"><a href="../dakzulLatest/main.php">Home</a></button>
 
 </div>
   

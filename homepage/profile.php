@@ -13,7 +13,7 @@ $username = $_SESSION['username'];
 $sql = "SELECT * FROM residence WHERE username = '$username'";
 $result = $conn->query($sql);
 
-if ($result->num_rows == 1) {
+if ($result->num_rows == 0) {
     $user = $result->fetch_assoc();
 } else {
     echo "<div class='message'>User not found.</div>";
@@ -145,8 +145,9 @@ if ($result->num_rows == 1) {
     <h1 id="text">Profile</h1>
     
 </div>
+<p id="role"><span" >Username: </span><?=htmlspecialchars(string: $user['username'])?></p>
+<p id="role"><span" >ROLE: </span><?=htmlspecialchars(string: $user['role'])?></p>
 
-<p id="role"><span" >ROLE:</span><?=htmlspecialchars(string: $user['role'])?></p>
 
 <div class="partsatu">
   <div class="tajukpart">Account Info</div>
@@ -160,7 +161,7 @@ if ($result->num_rows == 1) {
   </div>
 
   <a href="edit.php" class="edit-button">Edit</a>
-  <a href="../fileUser/mainUser.php" class="edit-button">Home</a>
+  <a href="../dakzulLatest/main.php" class="edit-button">Home</a>
 </div>
 
 <div class="content">

@@ -11,6 +11,7 @@
 <body>
 
   <?php include("burger.php"); ?>
+  
 
   <div class="head">
     <h1>Admin</h1>
