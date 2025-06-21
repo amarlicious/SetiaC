@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../css/burger.css" type="text/css">
+  <link rel="stylesheet" href="css/burger.css" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
 
 </head>
 <body>
-
 
 
 <div class="burger-bg">
@@ -22,10 +21,10 @@
 </div>
 
 <div class="sidebar" id="sidebar">
-  <a href="reportUser.php"><i class="fas fa-file"></i> Report</a>
+  <a href="main.php"><i class="fas fa-home"></i> Home</a>
   <a href="#"><i class="fas fa-comment-dots"></i> Community</a>
-  <a href="../fileUser/mainUser.php"><i class="fas fa-home"></i> Home</a>
-  <a href="../dakzulLatest/logout.php">Log Out</a>
+  <a href="admin.php"><i class="fas fa-user-shield"></i> Admin</a>
+  <a href="logout.php">Log Out</a>
 </div>
 
 <script>

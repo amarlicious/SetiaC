@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once '../dakzulLatest/connect.php';
+require_once 'connect.php';
 
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     echo "Access denied.";
-    echo "<meta http-equiv='refresh' content='3;URL=../login.php'>";
+    echo "<meta http-equiv='refresh' content='3;URL= login.php'>";
     exit();
 }
 

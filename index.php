@@ -6,18 +6,20 @@ if (isset($_SESSION['username']))
     session_destroy();
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="styleLogReg.css" type="text/css">
+  <link rel="stylesheet" href="css/index.css" type="text/css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sign In</title>
 </head>
 <body>
   <section>
   <div class="container">
-    <div class="kiri"> <img src = "../image/homepage.jpg" width="100%"></div>
+    <div class="kiri"> <img src = "image/homepage.jpg" width="100%"></div>
     <div class="kanan">
     <div class="login-container">
       <h2>Sign In</h2>

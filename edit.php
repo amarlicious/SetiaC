@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../dakzulLatest/connect.php'); 
+include('connect.php'); 
 
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");

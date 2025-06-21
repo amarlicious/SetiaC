@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../dakzulLatest/connect.php'; 
+require_once 'connect.php'; 
 
 if (!isset($_SESSION['username'])) { 
     echo "Access Denied. please log in.";
