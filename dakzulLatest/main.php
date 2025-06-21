@@ -94,7 +94,7 @@ main {
       <div class="button-group">
         <a class="select" href="../adminfile/report.php">Report</a>
         <a class="select" href="community.php">Community</a>
-        <a class="select" href="../homepage/adminBaru.php">Admin</a>
+        <a class="select" href="../adminFile/admin.php">Admin</a>
       </div>
     </nav>
   </main>

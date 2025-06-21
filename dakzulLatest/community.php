@@ -123,6 +123,6 @@ main {
       <img src="bilikIssac.png" alt="bilikIssac" id="bilik">
     </section>
   </main>
-<?php include("footer.php"); ?>
+<?php include("../footer.php"); ?>
 </body>
 </html>
