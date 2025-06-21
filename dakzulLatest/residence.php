@@ -1,31 +1,30 @@
 <?php
-require('connect.php');
+include("connect.php");
 
-$nm = $_POST['name'];
-$eml = $_POST['email'];
-$phone = $_POST['phone'];
-$username = $_POST['username'];
-$password = $_POST['password'];
-$uploadPath = '';
+if (isset($_POST['submit'])) {
+    $name     = htmlspecialchars($_POST['name']);
+    $email    = htmlspecialchars($_POST['email']);
+    $phone    = htmlspecialchars($_POST['phone']);
+    $username = htmlspecialchars($_POST['username']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // SEMAK sama ada username sudah wujud
+    $checkUsername = "SELECT * FROM residence WHERE username = '$username'";
+    $result = mysqli_query($conn, $checkUsername);
 
-if(isset($_FILES['picture'])&& $_FILES['picture']['error'] == 0){
-    $uploadDir ='uploads/';
-    if(!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
+    if (mysqli_num_rows($result) > 0) {
+        echo "<script>alert('Username already exists. Please choose another one.'); window.history.back();</script>";
+        exit();
+    }
 
-    $uploadPath = $uploadDir . uniqid('img_') . '_' . basename($_FILES['picture']['name']);
-    move_uploaded_file($_FILES['picture']['tmp_name'], $uploadPath);
+    // Jika belum wujud, insert
+    $sql = "INSERT INTO residence (name, email, phone, username, password) 
+            VALUES ('$name', '$email', '$phone', '$username', '$password')";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "<script>alert('Account created successfully!'); window.location.href='index.php';</script>";
+    } else {
+        echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
+    }
 }
-
-$sql = "INSERT INTO residence (name, email, phone, username, password, picture)
-        VALUES('$nm', '$eml', '$phone', '$username', '$hashedPassword', '$uploadPath')";
-
-if($conn->query($sql) === TRUE){
-    echo "New record created succesfully";
-    echo "<meta http-equiv='refresh' content='3;URL=index.php'>";
-} else{
-    echo "Error: " . $conn->error;
-}
-$conn->close();
 ?>

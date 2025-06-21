@@ -160,7 +160,7 @@ if ($result->num_rows == 1) {
   </div>
 
   <a href="edit.php" class="edit-button">Edit</a>
-  <a href="../fileUser/mainUser.php" class="edit-button">Home</a>
+  <a href="../dakzulLatest/main.php" class="edit-button">Home</a>
 </div>
 
 <div class="content">
