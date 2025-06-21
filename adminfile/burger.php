@@ -25,6 +25,9 @@
   <a href="../dakzulLatest/main.php"><i class="fas fa-home"></i> Home</a>
   <a href="#"><i class="fas fa-comment-dots"></i> Community</a>
   <a href="admin.php"><i class="fas fa-user-shield"></i> Admin</a>
+  <a href="report.php"><i class="fas fa-file"></i> Report</a>
+  <a href="../dakzulLatest/community.php"><i class="fas fa-comment-dots"></i> Community</a>
+  <a href="../homepage/adminBaru.php"><i class="fas fa-user-shield"></i> Admin</a>
   <a href="../dakzulLatest/logout.php">Log Out</a>
 </div>
 
