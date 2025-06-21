@@ -2,6 +2,7 @@
 session_start();
 require_once('connect.php');
 
+// Redirect non-admin users
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: nonAdmin.php");
     exit();
@@ -10,6 +11,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 $report_list = [];
 $total_reports = 0;
 
+// Get reports
 $sql = "SELECT r.*, res.username AS reporter_username 
         FROM reports r 
         JOIN residence res ON r.user_id = res.id 
@@ -33,20 +35,23 @@ if ($stmt = $conn->prepare($sql)) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page - All Reports</title>
-    <link rel="stylesheet" href="css/admin.css" type="text/css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Page </title>
+    <link rel="stylesheet" href="css/admin.css" type="text/css" />
 </head>
 <body>
 
-
 <?php include("burger.php"); ?>
 
+<div class="head"">
+    <h1>Admin</h1>
+    
+</div>
+
 <div class="main-content-wrapper">
+    <!-- Sidebar for Admin -->
     <div class="admin-sidebar">
-        <p class="admin">Admin</p>
         <ul>
             <li id="Home"><a href="main.php">Home</a></li>
             <li id="Report"><a href="report.php">Report</a></li>
@@ -55,6 +60,7 @@ if ($stmt = $conn->prepare($sql)) {
         </ul>
     </div>  
 
+    <!-- Main Container -->
     <div class="container2">
         <p class="center-text">Total Reports Submitted (All Users): <?= $total_reports ?></p>
 
