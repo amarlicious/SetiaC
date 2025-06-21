@@ -96,10 +96,23 @@
     {
         margin-left: auto;
     }
-    .logout
-    {
-      color: red;
-    }
+    
+    .logout {
+      background-color: #e63946; /* warna merah terang */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logout:hover {
+  background-color: #d62828; /* warna lebih gelap bila hover */
+  cursor: pointer;
+  text-decoration: none;
+}
     
   </style>
 </head>
