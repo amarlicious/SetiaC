@@ -105,11 +105,28 @@ $conn->close();
             padding-bottom: 10px;
             margin-bottom: 15px;
         }
+         .header {
+            background-color: #7B61FF;
+            color: white;
+            padding: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; 
+            gap: 20px; 
+            font-family: Arial, sans-serif;
+        }
+       #text {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <div class="head">
-        <h1>Report Submit</h1>
+    <div class="header">
+        <h1 id="text">Report Submit</h1>
     </div>
 
     <div class="main-content">

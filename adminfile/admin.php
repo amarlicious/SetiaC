@@ -152,7 +152,7 @@ if ($stmt = $conn->prepare($sql)) {
         <ul>
             <li id="Home"><a href="../dakzulLatest/main.php">Home</a></li>
             <li id="Report"><a href="report.php">Report</a></li>
-            <li id="message"><a href="message.php">Message</a></li>
+            <li id="feedback"><a href="../dakzulLatest/feedback.php">Feedback</a></li>
             <li id="setting"><a href="../homepage/statusUpdate.php">Status Update</a></li>
         </ul>
     </div>     
