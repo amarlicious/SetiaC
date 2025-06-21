@@ -1,32 +1,31 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "setia";
+session_start();
+include('connect.php');
 
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
 }
 
-$message = $_POST['message'] ?? '';
-$imagePath = '';
+$user = $_SESSION['username'];
+$message = $conn->real_escape_string($_POST['message']);
+$imagePath = "";
 
-if (!empty($_FILES['image']['name'])) {
-  $targetDir = "uploads/";
-  if (!is_dir($targetDir)) {
-    mkdir($targetDir, 0777, true);
-  }
-  $imagePath = $targetDir . basename($_FILES["image"]["name"]);
-  move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
+if (!empty($_FILES["image"]["name"])) {
+    $targetDir = "uploads/";
+    if (!is_dir($targetDir)) mkdir($targetDir);
+    $fileName = basename($_FILES["image"]["name"]);
+    $targetFile = $targetDir . time() . "_" . $fileName;
+
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+        $imagePath = $targetFile;
+    }
 }
 
-$sql = "INSERT INTO chats (user_name, message, image_path) VALUES ('Issac', ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $message, $imagePath);
+$stmt = $conn->prepare("INSERT INTO chat (user_name, message, image_path) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $user, $message, $imagePath);
 $stmt->execute();
+$stmt->close();
 
-$conn->close();
-header("Location: announcement.php");
+header("Location: community.php");
 exit();
-?>

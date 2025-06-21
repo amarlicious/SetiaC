@@ -1,9 +1,35 @@
+<?php
+session_start();
+include('connect.php');
+
+// Cegah akses jika tak login
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+
+// Dapatkan nama penuh dari table residence
+$login_username = $_SESSION['username'];
+$name = $login_username; // default
+
+$sql = "SELECT name FROM residence WHERE username = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $login_username);
+$stmt->execute();
+$result = $stmt->get_result();
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $name = $row['name'];
+}
+$stmt->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Setia - Announcement</title>
+  <title>Setia - Community</title>
   <style>
   body {
   margin: 0;
@@ -17,7 +43,7 @@ main {
   margin: 0 auto;
 }
 .announcement-section h2 {
-  background-color: #7B61FF;
+  background-color: #8c8cff;
   color: white;
   text-align: center;
   padding: 15px;
@@ -71,24 +97,6 @@ main {
   border-radius: 8px;
   margin-bottom: 10px;
 }
- 
-        .header {
-            background-color: #7B61FF;
-            color: white;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start; 
-            gap: 20px; 
-            font-family: Arial, sans-serif;
-        }
-       #text {
-            font-size: 40px;
-            font-weight: bold;
-            text-align: center;
-            display: block;
-            width: 100%;
-        }
   </style>
 </head>
 <body>
@@ -101,19 +109,20 @@ main {
     <section class="announcement-section">
       <h2>Community</h2>
         <div class="announcement">
-          <img src="../image/bell.png" alt="bell" id="bell">
+          <img src="bell (1).png" alt="bell" id="bell">
           <h3>No Announcement Yet!</h3>
         </div>
       </div>
     </section>
+
     <section class="community">
       <div class="user-info">
-        <img src="../image/user.png" alt="user" class="user">
+        <img src="user.png" alt="user" class="user">
         <h3>Issac</h3>
       </div>
-      <img src="../image/bilikIssac.png" alt="bilikIssac" id="bilik">
+      <img src="bilikIssac.png" alt="bilikIssac" id="bilik">
     </section>
   </main>
-<?php include("../footer.php"); ?>
+<?php include("footer.php"); ?>
 </body>
 </html>
