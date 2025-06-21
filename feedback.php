@@ -13,7 +13,7 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Feedback</title>
-    <link rel="stylesheet" href="../css/report.css" type="text/css" />
+    <link rel="stylesheet" href="css/report.css" type="text/css" />
     <style>
         .error-message {
             color: #d9534f;
@@ -38,7 +38,7 @@ if (!isset($_SESSION['username'])) {
     </style>
 </head>
 <body>
-<?php include("../adminfile/burger.php"); ?>
+<?php include("burger.php"); ?>
 
 <div class="head">
     <h1>Feedback</h1>

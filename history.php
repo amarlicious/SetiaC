@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../dakzulLatest/connect.php'; 
+require_once 'connect.php'; 
 
 // Semak sama ada pengguna sudah log masuk
 if (!isset($_SESSION['username'])) { 
@@ -46,7 +46,7 @@ $conn->close();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Report History</title>
-    <link rel="stylesheet" href="../css/reportSubmit.css" />
+    <link rel="stylesheet" href="css/reportSubmit.css" />
     <style>
         .report-summary {
             background-color: #f9f9f9;
@@ -134,7 +134,7 @@ $conn->close();
     </div>
 
     <div class="center-text">
-        <a href="../dakzulLatest/main.php"><button class="home-button">Home</button></a>
+        <a href="main.php"><button class="home-button">Home</button></a>
     </div>
 </body>
 </html>

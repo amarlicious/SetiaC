@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../dakzulLatest/connect.php'; 
+require_once 'connect.php'; 
 
 // Pastikan pengguna telah log masuk
 if (!isset($_SESSION['username'])) { 
@@ -44,7 +44,7 @@ $conn->close();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Feedback Submission</title>
-    <link rel="stylesheet" href="../css/reportSubmit.css" />
+    <link rel="stylesheet" href="css/reportSubmit.css" />
     <style>
         .report-summary {
             background-color: #f0f0f0;
@@ -111,7 +111,7 @@ $conn->close();
 
     <div class="main-content">
         <div class="bulatan">
-            <img class="icon" src="../image/right icon.jpg" alt="Success" />
+            <img class="icon" src="image/right icon.jpg" alt="Success" />
         </div>
         <div class="text center-text">
             <p><strong>Feedback Submitted Successfully!</strong></p>
@@ -129,7 +129,7 @@ $conn->close();
     <?php endif; ?>
 
     <div>
-        <a href="../dakzulLatest/main.php"><button class="home-button">Home</button></a>
+        <a href="main.php"><button class="home-button">Home</button></a>
     </div>
 
 </body>

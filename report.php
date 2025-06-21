@@ -13,7 +13,7 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Report</title>
-    <link rel="stylesheet" href="../css/report.css" type="text/css" />
+    <link rel="stylesheet" href="css/report.css" type="text/css" />
     <style>
         /* Gaya untuk mesej ralat */
         .error-message {
@@ -28,9 +28,8 @@ if (!isset($_SESSION['username'])) {
             font-weight: bold;
             display: none; /* Sembunyikan secara lalai */
         }
-
-    .report_box {
-    background-color: #f9f9f9;
+    .report-box {
+    background-color: #ffffff;
     max-width: 800px;
     margin: 30px auto;
     padding: 30px;
@@ -40,13 +39,13 @@ if (!isset($_SESSION['username'])) {
     </style>
 </head>
 <body>
-<?php include("../adminfile/burgerUser.php");?>
+<?php include("burger.php");?>
 
 <div class="head">
     <h1>Report</h1>
 </div>
 
-<div class="report_box">
+<div class="report-box">
     <form id="form1" action="reportpost.php" enctype="multipart/form-data" method="POST">
     <div class="camera">
         <div class="camera-container">

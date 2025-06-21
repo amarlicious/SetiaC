@@ -136,10 +136,10 @@
      <nav class="menu">
     <ul class="nav">
 
-    <li><a href="../dakzulLatest/main.php">Home</a></li>
-    <li><a href="../homepage/profile.php">Profile</a></li>
-    <li><a href="../homepage/history.php">History</a></li>
-    <li><a href="../dakzulLatest/logout.php"><span class="logout">LOG OUT</span></a></li>
+    <li><a href="main.php">Home</a></li>
+    <li><a href="profile.php">Profile</a></li>
+    <li><a href="history.php">History</a></li>
+    <li><a href="logout.php"><span class="logout">LOG OUT</span></a></li>
     
     </ul>
     </nav>

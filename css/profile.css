@@ -1,33 +1,4 @@
-<?php
-session_start();
-include('../dakzulLatest/connect.php');
-
-
-if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
-    exit();
-}
-
-$username = $_SESSION['username'];
-
-$sql = "SELECT * FROM residence WHERE username = '$username'";
-$result = $conn->query($sql);
-
-if ($result->num_rows == 1) {
-    $user = $result->fetch_assoc();
-} else {
-    echo "<div class='message'>User not found.</div>";
-    exit();
-}
-?>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Profile</title>
-    <style>
-        body {   
+ body {   
             font-family: Arial;
             background: #f2f2f7; 
             margin:0;
@@ -136,37 +107,3 @@ if ($result->num_rows == 1) {
     text-align: center;
     padding: 0;
 }
-
-    </style>
-</head>
-<body>
-
-<div class="header">
-    <h1 id="text">Profile</h1>
-    
-</div>
-<p id="role"><span" >Username: </span><?=htmlspecialchars(string: $user['username'])?></p>
-<p id="role"><span" >ROLE: </span><?=htmlspecialchars(string: $user['role'])?></p>
-
-
-<div class="partsatu">
-  <div class="tajukpart">Account Info</div>
-
-    <img class="profilepart" src="<?php echo $user['picture']; ?>" alt="Profile Picture">
-
-  <div class="info">
-    <p><span>Full Name:</span> <?= htmlspecialchars($user['name']) ?></p>
-    <p><span>Email:</span> <?= htmlspecialchars($user['email']) ?></p>
-    <p><span>Contact:</span> <?= htmlspecialchars($user['phone']) ?></p>
-  </div>
-
-  <a href="edit.php" class="edit-button">Edit</a>
-  <a href="../dakzulLatest/main.php" class="edit-button">Home</a>
-</div>
-
-<div class="content">
-    <a href="../dakzulLatest/logout.php" id="logout-button">Log Out</a>
-</div>
-
-</body>
-</html>

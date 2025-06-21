@@ -6,7 +6,7 @@ session_start();
 // Pastikan laluan ke connect.php betul dari lokasi fail ini.
 // Berdasarkan perbincangan sebelum ini, jika reportSubmitted.php di 'adminfile'
 // dan connect.php di 'dakzulLatest', laluan ini adalah betul.
-require_once '../dakzulLatest/connect.php'; 
+require_once 'connect.php'; 
 
 // Semak sama ada pengguna sudah log masuk
 if (!isset($_SESSION['username'])) { 
@@ -61,7 +61,7 @@ $conn->close();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Submit report</title>
-    <link rel="stylesheet" href="../css/reportSubmit.css" />
+    <link rel="stylesheet" href="css/reportSubmit.css" />
     <style>
       
         .report-summary {
@@ -131,7 +131,7 @@ $conn->close();
 
     <div class="main-content">
         <div class="bulatan">
-            <img class="icon" src="../image/right icon.jpg" alt="Success" />
+            <img class="icon" src="image/right icon.jpg" alt="Success" />
         </div>
         <div class="text">
             <p>Report Submit Successfully!</p>
@@ -157,7 +157,7 @@ $conn->close();
     </div>
     
     <div>
-        <a href="../dakzulLatest/main.php"><button class="home-button">Home</button></a>
+        <a href="main.php"><button class="home-button">Home</button></a>
     </div>
 
 </body>
