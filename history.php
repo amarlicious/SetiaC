@@ -161,9 +161,6 @@ $conn->close();
                             <?= htmlspecialchars($report['status']) ?>
                         </span>
                     </p>
-                    <p><strong>Admin Note:</strong> 
-    <span><?= !empty($report['adminDesc']) ? nl2br(htmlspecialchars($report['adminDesc'])) : 'Tiada catatan daripada admin.' ?></span>
-</p>
 
                     <?php if (!empty($report['image_path'])): ?>
                         <p><strong>Picture:</strong></p>

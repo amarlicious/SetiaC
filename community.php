@@ -42,6 +42,27 @@ $stmt->close();
       max-width: 700px;
       margin: 0 auto;
     }
+    
+.head {
+  background-color: #7B61FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  color: white;
+  font-size: 24px;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#text {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+
     .announcement-section h2 {
       background-color: #7B61FF;
       color: white;
@@ -127,9 +148,15 @@ $stmt->close();
 </head>
 <body>
 
-  <main>
-    <section class="announcement-section">
-      <h2>Community</h2>
+<?php include("burger.php"); ?>
+
+<div class="head">
+  <h1 id="text">Community</h1>
+</div>
+
+<main>
+  <section class="announcement-section">
+
       <div class="announcement">
         <img src="../image/bell.png" alt="bell" id="bell">
         <h3>No Announcement Yet!</h3>
