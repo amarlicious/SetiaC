@@ -96,6 +96,7 @@ $result = $conn->query($sql);
         <th>Report ID</th>
         <th>Description</th>
         <th>Status</th>
+        <
     </tr>
     <?php while($row = $result->fetch_assoc()): ?>
     <tr>

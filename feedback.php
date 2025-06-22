@@ -42,13 +42,20 @@ if ($result->num_rows == 1) {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100px;
+            padding: 30px;
             color: white;
-            font-size: 35px;
+            font-size: 24px;
             width: 100%;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
+        #text {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+    
         .feedback-container {
             display: flex;
             justify-content: center;
@@ -103,7 +110,9 @@ if ($result->num_rows == 1) {
 </head>
 <body>
 
-    <div class="head">Feedback</div>
+    <div class="head">
+    <h1 id= text >Feedback</h1>
+</div>
 
     <div class="feedback-container">
         <div class="feedback-box">

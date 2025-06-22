@@ -77,9 +77,7 @@ $conn->close();
             border-radius: 5px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        .center-text {
-            text-align: center;
-        }
+      
         .report-summary h2 {
             margin-top: 0;
             color: #333;
@@ -101,20 +99,51 @@ $conn->close();
         .home-button:hover {
             background-color: #4cae4c;
         }
-    </style>
+         .header {
+            background-color: #7B61FF;
+            color: white;
+            padding: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; 
+            gap: 20px; 
+            font-family: Arial, sans-serif;
+        }
+       #text {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+       .text {
+            margin: 30px auto;
+            text-align: center;
+            top: 525px;
+            left: 429px;
+            width: 508px;
+            height: 168px;
+            font-family: Inter;
+            font-size: 64px;
+            line-height: 84px;
+            font-weight: 700;
+            color: #171A1FFF;
+        }
+        
+</style>
 </head>
 <body>
 
-    <div class="head">
-        <h1>Report Submit</h1>
+    <div class="header">
+        <h1 id="text">Feedback Submit</h1>
     </div>
 
     <div class="main-content">
         <div class="bulatan">
             <img class="icon" src="image/right icon.jpg" alt="Success" />
         </div>
-        <div class="text center-text">
-            <p><strong>Feedback Submitted Successfully!</strong></p>
+        <div class="text">
+            <p>Feedback Submit Successfully!</p>
         </div>
     </div>
 

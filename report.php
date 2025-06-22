@@ -28,17 +28,24 @@ if (!isset($_SESSION['username'])) {
             font-weight: bold;
             display: none;
         }
-    .head {
-    background-color: #7B61FF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    color: white;
-    font-size: 24px;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+        .head {
+            background-color: #7B61FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: white;
+            font-size: 24px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #text {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
     
     </style>
 </head>

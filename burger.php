@@ -22,7 +22,7 @@
 
 <div class="sidebar" id="sidebar">
   <a href="main.php"><i class="fas fa-home"></i> Home</a>
-  <a href="#"><i class="fas fa-comment-dots"></i> Community</a>
+  <a href="community.php"><i class="fas fa-comment-dots"></i> Community</a>
   <a href="admin.php"><i class="fas fa-user-shield"></i> Admin</a>
   <a href="logout.php">Log Out</a>
 </div>

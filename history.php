@@ -45,9 +45,15 @@ $conn->close();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <link rel="stylesheet" href="css/admin.css" type="text/css" />
     <title>Report History</title>
-    <link rel="stylesheet" href="css/reportSubmit.css" />
+   
     <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         .report-summary {
             background-color: #f9f9f9;
             border: 1px solid #ccc;
@@ -93,11 +99,50 @@ $conn->close();
             color: green;
             font-weight: bold;
         }
+      .head {
+            background-color: #7B61FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: white;
+            font-size: 24px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #text {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+        .home-button {
+            background-color: #7B61FF;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 30px auto;
+        }
+
+        .home-button:hover {
+            background-color: #d50909;
+        }
+        .home-button a {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div class="head">
-        <h1>Report History</h1>
+        <h1 id="text">Report History</h1>
     </div>
 
     <div class="main-content">

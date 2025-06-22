@@ -43,7 +43,7 @@ $stmt->close();
       margin: 0 auto;
     }
     .announcement-section h2 {
-      background-color: #8c8cff;
+      background-color: #7B61FF;
       color: white;
       text-align: center;
       padding: 15px;
@@ -116,17 +116,17 @@ $stmt->close();
       margin-top: 10px;
       padding: 10px 20px;
       border: none;
-      background-color: #8c8cff;
+      background-color: #7B61FF;
       color: white;
       border-radius: 8px;
     }
     button:hover {
-      background-color: #654bd1;
+      background-color: #d50909;
     }
   </style>
 </head>
 <body>
-  <?php include("header.php"); ?>
+
   <main>
     <section class="announcement-section">
       <h2>Community</h2>

@@ -87,7 +87,105 @@ if ($result && $result->num_rows > 0) {
     .center-text {
       text-align: center;
       margin: 10px 0;
+      color:#7B61FF;
     }
+  
+  .info-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f7faff;
+  border: 2px solid #d1d9e6;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* Responsive */
+}
+
+.info-item {
+  flex: 1 1 200px;
+  text-align: center;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.info-item h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.info-item p {
+  font-size: 20px;
+  color: #007acc;
+  font-weight: bold;
+}
+
+.semuabox {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* ruang antara item */
+  background-color: #f0f4f8;
+  border: 2px solid #d1d9e6;
+  border-radius: 15px;
+  padding: 15px 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* Supaya responsive di skrin kecil */
+}
+
+.center-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.transparent-box {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+  overflow: hidden; /* penting supaya teks tak keluar */
+}
+
+.teks-bergerak {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.teks-scroll {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 15s linear infinite;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.teks-scroll p {
+  display: inline;
+  margin-right: 60px; /* jarak antara teks */
+  color:red;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -98,6 +196,17 @@ if ($result && $result->num_rows > 0) {
   <img src="image/landscape.png" id="picture" style="width:100%; height:auto;">
 </div>
 
+<div class="transparent-box">
+  <div class="teks-bergerak">
+    <div class="teks-scroll">
+      <p>Total Registered Residence: <?= $total_residence ?></p>
+      <p>Total Reports Submitted (All Users): <?= $total_reports ?></p>
+      <p>Pending Reports: <?= $pending_reports ?></p>
+    </div>
+  </div>
+</div>
+
+
 <main>
   <nav class="bawah">
     <h2 class="center-text">General</h2>
@@ -107,11 +216,7 @@ if ($result && $result->num_rows > 0) {
       <a class="select" href="admin.php">Admin</a>
       <a class="select" href="feedback.php">Feedback</a> 
     </div>
-    <div>
-      <p class="center-text">Total Registered Residence: <?= $total_residence ?></p>
-      <p class="center-text">Total Reports Submitted (All Users): <?= $total_reports ?></p>
-      <p class="center-text">Pending Reports: <?= $pending_reports ?></p>
-    </div>
+   
   </nav>
 </main>
 
