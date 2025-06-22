@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (password_verify($input_password, $user['password'])) {
                 $_SESSION['username'] = $user['username'];
-                $_SESSION['role'] = 'User';
+                $_SESSION['role'] = 'user';
 
                 header("Location: main.php"); // user dashboard
                 exit();

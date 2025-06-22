@@ -131,7 +131,7 @@ $stmt->close();
     <section class="announcement-section">
       <h2>Community</h2>
       <div class="announcement">
-        <img src="bell (1).png" alt="bell" id="bell">
+        <img src="../image/bell.png" alt="bell" id="bell">
         <h3>No Announcement Yet!</h3>
       </div>
     </section>
@@ -154,7 +154,7 @@ $stmt->close();
         ?>
       </div>
 
-      <form action="chatprocess.php" method="POST" enctype="multipart/form-data">
+      <form action="chat_process.php" method="POST" enctype="multipart/form-data">
         <textarea name="message" rows="3" placeholder="Type your message.." required></textarea><br>
         <input type="file" name="image" accept="image/*"><br>
         <button type="submit">Submit</button>

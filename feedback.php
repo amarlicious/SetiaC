@@ -1,90 +1,119 @@
 <?php
 session_start();
+include('connect.php');
+
 if (!isset($_SESSION['username'])) {
-    echo "Access denied. Please log in.";
-    echo "<meta http-equiv='refresh' content='3; URL=index.php'>";
+    header("Location: index.php");
+    exit();
+}
+
+$username = $_SESSION['username'];
+
+// Check if user is not admin
+$sql = "SELECT * FROM residence WHERE username = '$username'";
+$result = $conn->query($sql);
+
+if ($result->num_rows == 1) {
+    $user = $result->fetch_assoc();
+} else {
+    header("Location: nonfeedback.php");
     exit();
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Feedback</title>
-    <link rel="stylesheet" href="css/report.css" type="text/css" />
+    <title>Feedback Page</title>
     <style>
-        .error-message {
-            color: #d9534f;
-            background-color: #f9d6d5;
-            border: 1px solid #d9534f;
-            border-radius: 6px;
-            padding: 10px 15px;
-            margin: 15px auto;
-            width: fit-content;
-            text-align: center;
-            font-weight: bold;
-            display: none;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .report-box {
-            background-color: #ffffff;
-            max-width: 600px;
-            margin: 30px auto;
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+
+        .head {
+            background-color: #7B61FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            color: white;
+            font-size: 35px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .feedback-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .feedback-box {
+            background-color: #f9f9f9;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px grey;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            width: 500px;
         }
-       .head
-        {
-    background-color: #7B61FF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    color: white;
-    font-size: 24px;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        .feedback-box textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 20px;
+            color: red;
         }
     </style>
 </head>
 <body>
-<?php include("burger.php"); ?>
 
-<div class="head">
-    <h1>Feedback</h1>
-</div>
+    <div class="head">Feedback</div>
 
-<div class="report-box">
-    <form id="form1" action="feedbacksubmit.php" method="POST">
-        <h2 class="addReport">Leave Your Feedback</h2>
-        <input type="text" name="feedback_text" id="feedback_text" placeholder="Enter your message..." class="report-input" />
-        
-        <div id="validationMessage" class="error-message"></div>
-        
-        <button type="submit" class="send-button" name="submit">Send</button>
-    </form>
-</div>
+    <div class="feedback-container">
+        <div class="feedback-box">
+            <form action="feedbackpost.php" method="POST">
+                <label for="feedback_text"><strong>Write Your Feedback:</strong></label><br><br>
+                <textarea name="feedback_text" id="feedback_text" required></textarea><br>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
 
-<script>
-    const form = document.getElementById('form1');
-    const feedbackTextInput = document.getElementById('feedback_text');
-    const validationMessage = document.getElementById('validationMessage');
-
-    form.addEventListener('submit', function(event) {
-        if (feedbackTextInput.value.trim() === '') {
-            event.preventDefault();
-            validationMessage.innerHTML = 'Please enter your message.';
-            validationMessage.style.display = 'block';
-        } else {
-            validationMessage.style.display = 'none';
-        }
-    });
-
-    feedbackTextInput.addEventListener('input', function() {
-        validationMessage.style.display = 'none';
-    });
-</script>
 </body>
 </html>
