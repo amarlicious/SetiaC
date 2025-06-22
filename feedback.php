@@ -35,6 +35,18 @@ if (!isset($_SESSION['username'])) {
             border-radius: 15px;
             box-shadow: 0 8px 25px grey;
         }
+       .head
+        {
+    background-color: #7B61FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: white;
+    font-size: 24px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>

@@ -57,6 +57,32 @@ $result = $conn->query($sql);
         .btn-delete:hover {
             background-color: #c0392b;
         }
+
+            .edit-button {
+            background-color: #7B61FF;
+            color: white;
+            padding: 6px 16px;        
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 20px auto;
+            font-size: 14px;         
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-button:hover {
+            background-color: purple;
+        }
+        
+        #button-back {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -89,6 +115,8 @@ $result = $conn->query($sql);
     </tr>
     <?php endwhile; ?>
 </table>
+ <div id="button-back"> <a href="admin.php" class="edit-button">Back</a></div>
+  
 
 </body>
 </html>

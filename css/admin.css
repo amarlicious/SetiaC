@@ -46,7 +46,7 @@
 
         .admin-sidebar a {
             text-decoration: none;
-            color: #333;
+            color: black;
             padding: 8px 10px;
             display: block;
             border-radius: 5px;
@@ -55,7 +55,7 @@
         }
 
         .admin-sidebar a:hover {
-            background-color: #e0e0e0;
+            background-color: #7B61FF;
         }
 
         .admin {
@@ -89,7 +89,7 @@
         }
 
         .report-table th {
-            background-color: #f0f0f0;
+            background-color: #7B61FF;
         }
 
         .center-text {
@@ -103,13 +103,13 @@
         
         .head
         {
-    background-color: #7B61FF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    color: white;
-    font-size: 24px;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+        background-color: #7B61FF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        color: white;
+        font-size: 24px;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }

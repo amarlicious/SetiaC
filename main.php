@@ -35,6 +35,19 @@ if ($pending_stmt = $conn->prepare($pending_sql)) {
 
 ?>
 
+<?php $residence_list = [];
+$total_residence = 0;
+
+$sql = "SELECT * FROM residence ORDER BY id ASC";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $residence_list[] = $row;
+    }
+    $total_residence = count($residence_list); 
+   } ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,6 +74,7 @@ if ($pending_stmt = $conn->prepare($pending_sql)) {
       <a class="select" href="admin.php">Admin</a>
     </div>
     <div>
+      <p class="center-text">Total Registered Residence: <?= $total_residence ?></p>
       <p class="center-text">Total Reports Submitted (All Users): <?= $total_reports ?></p>
       <p class="center-text">Pending reports: <?= $pending_reports ?></p>
     </div>
