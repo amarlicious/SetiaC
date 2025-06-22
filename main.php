@@ -22,6 +22,17 @@ if ($stmt = $conn->prepare($sql)) {
 } else {
     echo "Error preparing statement: " . $conn->error;
 }
+
+$pending_sql = "SELECT COUNT(*) AS pending_count FROM reports WHERE status = 'pending'";
+if ($pending_stmt = $conn->prepare($pending_sql)) {
+    $pending_stmt->execute();
+    $pending_stmt->bind_result($pending_reports);
+    $pending_stmt->fetch();
+    $pending_stmt->close();
+} else {
+    echo "Error preparing pending count: " . $conn->error;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -51,6 +62,7 @@ if ($stmt = $conn->prepare($sql)) {
     </div>
     <div>
       <p class="center-text">Total Reports Submitted (All Users): <?= $total_reports ?></p>
+      <p class="center-text">Pending reports: <?= $pending_reports ?></p>
     </div>
   </nav>
 </main>
