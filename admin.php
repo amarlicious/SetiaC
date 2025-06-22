@@ -30,6 +30,8 @@ if ($stmt = $conn->prepare($sql)) {
 } else {
     echo "Error preparing statement: " . $conn->error;
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +59,7 @@ if ($stmt = $conn->prepare($sql)) {
             <li id="Report"><a href="report.php">Report</a></li>
             <li id="feedback"><a href="feedback.php">Feedback</a></li>
             <li id="setting"><a href="statusUpdate.php">Status Update</a></li>
+
         </ul>
     </div>  
 
