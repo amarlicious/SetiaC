@@ -56,6 +56,7 @@ if ($stmt = $conn->prepare($sql)) {
     <div class="admin-sidebar">
         <ul>
             <li id="Home"><a href="main.php">Home</a></li>
+            <li id="residence"><a href="residenceinfo.php">Residence's Information</a></li>
             <li id="Report"><a href="report.php">Report</a></li>
             <li id="feedback"><a href="feedback.php">Feedback</a></li>
             <li id="setting"><a href="statusUpdate.php">Status Update</a></li>

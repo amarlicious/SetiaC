@@ -33,7 +33,7 @@ if (isset($_GET['feedback_id'])) {
         echo "<p style='color: red; text-align: center;'>Ralat SQL: " . $conn->error . "</p>";
     }
 } else {
-    echo "<p style='color: red; text-align: center;'>ID maklum balas tidak diberikan.</p>";
+  
 }
 
 $conn->close();
