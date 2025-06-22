@@ -117,19 +117,20 @@ $conn->close();
             display: block;
             width: 100%;
         }
-        .home-button {
-            background-color: #7B61FF;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: block;
-            margin: 30px auto;
-        }
+     
+.home-button {
+    background-color: #7B61FF;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 30px auto;
+}
 
         .home-button:hover {
             background-color: #d50909;
