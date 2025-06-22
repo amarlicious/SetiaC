@@ -15,10 +15,10 @@ if (!isset($_SESSION['username'])) {
     <title>Report</title>
     <link rel="stylesheet" href="css/report.css" type="text/css" />
     <style>
-        /* Gaya untuk mesej ralat */
+       
         .error-message {
-            color: #d9534f; /* Merah untuk ralat */
-            background-color: #f9d6d5; /* Latar belakang merah pucat */
+            color: #d9534f; 
+            background-color: #f9d6d5; 
             border: 1px solid #d9534f;
             border-radius: 6px;
             padding: 10px 15px;
@@ -26,8 +26,19 @@ if (!isset($_SESSION['username'])) {
             width: fit-content;
             text-align: center;
             font-weight: bold;
-            display: none; /* Sembunyikan secara lalai */
+            display: none;
         }
+    .head {
+    background-color: #7B61FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: white;
+    font-size: 24px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
     
     </style>
 </head>
@@ -86,13 +97,13 @@ if (!isset($_SESSION['username'])) {
             errorMessage += 'Please upload picture.<br>';
         }
 
-        // 2. Semak input teks laporan (report_text)
+       
         if (reportTextInput.value.trim() === '') {
             isValid = false;
             errorMessage += 'Please insert report text.<br>';
         }
 
-        // 3. Semak sekurang-kurangnya satu kategori dipilih
+       
         let isCategorySelected = false;
         for (let i = 0; i < categoryCheckboxes.length; i++) {
             if (categoryCheckboxes[i].checked) {
@@ -115,7 +126,7 @@ if (!isset($_SESSION['username'])) {
         }
     });
 
-    // Sembunyikan mesej ralat apabila pengguna mula menaip atau memilih
+   
     pictureInput.addEventListener('change', function() {
         validationMessage.style.display = 'none';
     });
@@ -131,3 +142,5 @@ if (!isset($_SESSION['username'])) {
 </script>
 </body>
 </html>
+
+ni file report.php
