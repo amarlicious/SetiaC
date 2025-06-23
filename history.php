@@ -13,7 +13,6 @@ $username = $_SESSION['username'];
 $report_list = []; 
 $total_reports = 0;
 
-
 $nakSearch = isset($_GET['search']) ? '%' . $_GET['search'] . '%' : null;
 
 if ($nakSearch) {
@@ -25,7 +24,7 @@ if ($nakSearch) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $username, $nakSearch);
 } else {
-    $sql = "SELECT r.*, res.username AS reporter_username, adminDesc 
+    $sql = "SELECT r.*, res.username AS reporter_username
             FROM reports r 
             JOIN residence res ON r.user_id = res.id 
             WHERE res.username = ? 
@@ -49,34 +48,7 @@ if ($stmt) {
 }
 
 $conn->close();
-
-
-// // Dapatkan semua laporan oleh pengguna yang log masuk
-// $sql = "SELECT r.*, res.username AS reporter_username, adminDesc 
-//         FROM reports r 
-//         JOIN residence res ON r.user_id = res.id 
-//         WHERE res.username = ? 
-//         ORDER BY r.report_date DESC";
-
-// if ($stmt = $conn->prepare($sql)) {
-//     $stmt->bind_param("s", $username);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-
-//     while ($row = $result->fetch_assoc()) {
-//         $report_list[] = $row;
-//     }
-
-//     // Kira jumlah laporan
-//     $total_reports = count($report_list);
-
-//     $stmt->close();
-// } else {
-//     echo "<p style='color: red; text-align: center;'>Ralat pangkalan data: " . $conn->error . "</p>";
-// }
-
-// $conn->close();
-// ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -86,6 +58,23 @@ $conn->close();
     <link rel="stylesheet" href="css/admin.css" type="text/css" />
     <link rel="stylesheet" href="css/history.css" type="text/css" />
     <title>Report History</title>
+    <style>
+        .delete-button {
+          background-color: #d9534f;
+          color: white;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+          margin-top: 10px;
+          transition: background-color 0.3s ease;
+        }
+
+        .delete-button:hover {
+          background-color: #c9302c;
+        }
+    </style>
 </head>
 <body>
     <div class="head">
@@ -93,10 +82,9 @@ $conn->close();
     </div>
 
     <form method="GET" class="center-text">
-    <input type="text" name="search" placeholder="Search your report..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
-    <button type="submit">Search</button>
+        <input type="text" name="search" placeholder="Search your report..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+        <button type="submit">Search</button>
     </form>
-
 
     <div class="main-content">
         <?php if (!empty($report_list)): ?>
@@ -115,8 +103,8 @@ $conn->close();
                         </span>
                     </p>
                     <p><strong>Admin Note:</strong> 
-    <span><?= !empty($report['adminDesc']) ? nl2br(htmlspecialchars($report['adminDesc'])) : 'Tiada catatan daripada admin.' ?></span>
-</p>
+                        <span><?= !empty($report['adminDesc']) ? nl2br(htmlspecialchars($report['adminDesc'])) : 'Tiada catatan daripada admin.' ?></span>
+                    </p>
 
                     <?php if (!empty($report['image_path'])): ?>
                         <p><strong>Picture:</strong></p>
@@ -124,6 +112,11 @@ $conn->close();
                     <?php else: ?>
                         <p><strong>Picture:</strong> <span>No picture uploaded.</span></p>
                     <?php endif; ?>
+
+                    <form action="delete_report.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this report?');">
+                        <input type="hidden" name="report_id" value="<?= htmlspecialchars($report['report_id']) ?>">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
