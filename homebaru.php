@@ -8,19 +8,21 @@
   
 </head>
 <body>
-    
+    <!-- header pertama -->
     <header>
         <div class="overlay"></div>
+        <!-- part button -->
         <div class="btn-right">
             <button onclick="location.href='index.php'">Sign in</button>
             <button onclick="location.href='register.html'">Register</button>
         </div>
+        <!-- tulisan dalam header -->
         <div class="contentfirst">
             <h1>See Something? Say Something. <span>SetiaC</span> Makes Reporting Easy. </h1>
             <p class="subtext">Your voice matters. Together we build a safer, smarter community.</p>
         </div>
     </header>
-
+<!-- tentang about -->
     <section class="about">
         <div class="overlay"></div>
         <div class="aboutcontent">
@@ -33,6 +35,7 @@
         </div>
     </section>
 
+    <!-- cerita pasal step -->
     <section class="cara">
         <h2>Start in 3 Easy Steps</h2>
         <div class="cara-container">
@@ -53,6 +56,7 @@
         </div>
     </section>
 
+    <!-- section last -->
     <section class="info">
         <!-- paparan map dan bussiness info -->
     <div class="mappart">
@@ -88,7 +92,6 @@
         <p><a href="mailto:spj-sales@spsetia.com" style="color: #654bd1; text-decoration: underline;">spj-sales@spsetia.com</a></p>
     </div>
     </section>
-    
      <?php include("footer.php"); ?>
 </body>
 </html>

@@ -63,108 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
     <title>Edit Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f7;
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            background-color: #7B61FF;
-            color: white;
-            padding: 1px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 20px;
-            font-family: Arial, sans-serif;
-        }
-        #text {
-            font-size: 40px;
-            font-weight: bold;
-            text-align: center;
-            display: block;
-            width: 100%;
-        }
-        .container {
-            max-width: 500px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid #d6ccff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
-        .tajukpart {
-            font-weight: bold;
-            font-size: 27px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #333;
-        }
-        .form-group input[type="text"],
-        .form-group input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box; 
-        }
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-        .save-button, .back-button {
-            padding: 10px 25px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            text-decoration: none; 
-            text-align: center;
-            display: inline-block;
-        }
-        .save-button {
-            background-color: #7B61FF;
-            color: white;
-        }
-        .save-button:hover {
-            background-color: #6a4fe3;
-        }
-        .back-button {
-            background-color: #ccc;
-            color: #333;
-        }
-        .back-button:hover {
-            background-color: #bbb;
-        }
-        .message {
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .success-message {
-            background-color:white;
-            color:green;
-            border: 1px solid white;
-        }
-        .error-message {
-            background-color: #f8d7da;
-            color:brown;
-            border: 1px solid #f5c6cb;
-        }
-    </style>
+     <link rel="stylesheet" href="css/edit.css" type="text/css">
+
 </head>
 <body>
 
@@ -178,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php if ($message): ?>
         <?= $message ?>
     <?php endif; ?>
-
+<!-- information -->
     <form action="edit.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="fullname">Full Name:</label>
@@ -200,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              <input type="file" name="picture" id="picture" >
 
         </div>
-
+<!-- button -->
         <div class="buttons">
             <button type="submit" class="save-button">Save Changes</button>
             <a href="profile.php" class="back-button">Back to Profile</a>
