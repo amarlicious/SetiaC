@@ -22,11 +22,10 @@ fetch("chart-data.php")
         plugins: {
           title: {
             display: true,
-            text: 'Report Counts per Category'
+            text: 'Report Counts per Category',
+            color:'black'
           },
-          legend: {
-            display: false
-          }
+         
         },
         scales: {
           y: {

@@ -7,7 +7,7 @@ if ($conn->connect_error) {
     exit();
 }
 
-// Kira jumlah laporan mengikut kategori
+
 $sql = "SELECT category, COUNT(*) as total FROM reports GROUP BY category";
 $result = $conn->query($sql);
 
