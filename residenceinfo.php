@@ -133,7 +133,6 @@ if ($result && $result->num_rows > 0) {
                         <th>Username</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Role</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -144,7 +143,6 @@ if ($result && $result->num_rows > 0) {
                             <td><?= htmlspecialchars($user['username']) ?></td>
                             <td><?= htmlspecialchars($user['email']) ?></td>
                             <td><?= htmlspecialchars($user['phone']) ?></td>
-                            <td><?= htmlspecialchars($user['role']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
