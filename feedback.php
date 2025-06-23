@@ -20,6 +20,7 @@ if ($result->num_rows == 1) {
     exit();
 }
 ?>
+<?php include("burger.php"); ?>
 
 <!DOCTYPE html>
 <html>
