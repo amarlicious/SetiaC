@@ -163,7 +163,6 @@ if ($result && $result->num_rows == 1) {
 </div>
 
 <p id="role"><span>Username:</span> <?= htmlspecialchars($user['username']) ?></p>
-<p id="role"><span>Role:</span> <?= htmlspecialchars($user['role']) ?></p>
 
 <div class="partsatu">
     <div class="tajukpart">Account Info</div>
