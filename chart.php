@@ -25,7 +25,8 @@
     }
 
     .chart {
-      width: 400px;
+      width: 500px;
+      height: 500px;
       background-color: #f7f7f7;
       padding: 20px;
       border-radius: 10px;
@@ -34,8 +35,8 @@
     }
 
     .chart canvas {
-      width: 100% !important;
-      height: 200px !important;
+      width: 100% ;
+      height: 300px;
     }
 
     h2 {
