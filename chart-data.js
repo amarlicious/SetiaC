@@ -13,8 +13,8 @@ fetch("chart-data.php")
         datasets: [{
           label: 'Number of Reports',
           data: values,
-          backgroundColor: 'rgba(123, 97, 255, 0.7)',
-          borderColor: '#7B61FF',
+          backgroundColor: '#7B61FF',
+          borderColor: 'black',
           borderWidth: 1
         }]
       },
