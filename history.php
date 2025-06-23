@@ -117,19 +117,20 @@ $conn->close();
             display: block;
             width: 100%;
         }
-        .home-button {
-            background-color: #7B61FF;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: block;
-            margin: 30px auto;
-        }
+     
+.home-button {
+    background-color: #7B61FF;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 30px auto;
+}
 
         .home-button:hover {
             background-color: #d50909;
@@ -157,13 +158,13 @@ $conn->close();
                     <p><strong>Category:</strong> <span><?= htmlspecialchars($report['category']) ?></span></p>
                     <p><strong>Report:</strong> <span><?= nl2br(htmlspecialchars($report['report_text'])) ?></span></p>
                     <p><strong>Status:</strong> 
-                      <span class="<?= ($report['status'] == 'Solved') ? 'status-solved' : 'status-pending'; ?>">
-                      <?= htmlspecialchars($report['status']) ?>
-                      </span>
+                        <span class="<?= ($report['status'] == 'Solved') ? 'status-solved' : 'status-pending'; ?>">
+                            <?= htmlspecialchars($report['status']) ?>
+                        </span>
                     </p>
                     <p><strong>Admin Note:</strong> 
-                    <span><?= !empty($report['adminDesc']) ? nl2br(htmlspecialchars($report['adminDesc'])) : 'Tiada catatan daripada admin.' ?></span>
-                    </p>
+    <span><?= !empty($report['adminDesc']) ? nl2br(htmlspecialchars($report['adminDesc'])) : 'Tiada catatan daripada admin.' ?></span>
+</p>
 
                     <?php if (!empty($report['image_path'])): ?>
                         <p><strong>Picture:</strong></p>
