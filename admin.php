@@ -59,7 +59,7 @@ if ($stmt = $conn->prepare($sql)) {
             <li id="residence"><a href="residenceinfo.php">Residence's Information</a></li>
             <li id="feedback"><a href="feedbackadmin.php">Feedback</a></li>
             <li id="setting"><a href="statusUpdate.php">Status Update</a></li>
-            <li id="setting"><a href="chart.php">Graph category</a></li>
+            <li id="setting"><a href="chart.php">Graph Category</a></li>
 
         </ul>
     </div>  
