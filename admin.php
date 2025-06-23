@@ -66,6 +66,7 @@ if ($stmt = $conn->prepare($sql)) {
 
     <!-- Main Container -->
     <div class="container2">
+    
         <p class="center-text">Total Reports Submitted (All Users): <?= $total_reports ?></p>
 
         <?php if (!empty($report_list)): ?>
