@@ -14,7 +14,7 @@ $report_list = [];
 $total_reports = 0;
 
 // Dapatkan semua laporan oleh pengguna yang log masuk
-$sql = "SELECT r.*, res.username AS reporter_username 
+$sql = "SELECT r.*, res.username AS reporter_username, adminDesc 
         FROM reports r 
         JOIN residence res ON r.user_id = res.id 
         WHERE res.username = ? 
@@ -157,13 +157,13 @@ $conn->close();
                     <p><strong>Category:</strong> <span><?= htmlspecialchars($report['category']) ?></span></p>
                     <p><strong>Report:</strong> <span><?= nl2br(htmlspecialchars($report['report_text'])) ?></span></p>
                     <p><strong>Status:</strong> 
-                        <span class="<?= ($report['status'] == 'Solved') ? 'status-solved' : 'status-pending'; ?>">
-                            <?= htmlspecialchars($report['status']) ?>
-                        </span>
+                      <span class="<?= ($report['status'] == 'Solved') ? 'status-solved' : 'status-pending'; ?>">
+                      <?= htmlspecialchars($report['status']) ?>
+                      </span>
                     </p>
                     <p><strong>Admin Note:</strong> 
-    <span><?= !empty($report['adminDesc']) ? nl2br(htmlspecialchars($report['adminDesc'])) : 'Tiada catatan daripada admin.' ?></span>
-</p>
+                    <span><?= !empty($report['adminDesc']) ? nl2br(htmlspecialchars($report['adminDesc'])) : 'Tiada catatan daripada admin.' ?></span>
+                    </p>
 
                     <?php if (!empty($report['image_path'])): ?>
                         <p><strong>Picture:</strong></p>

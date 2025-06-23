@@ -21,6 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['report_id'], $_POST['
     exit();
 }
 
+if (isset($_POST['submit_desc'])) {
+    $adminDesc = $_POST['admin_desc'];
+    $report_id = $_POST['report_id'];
+
+    $stmt = $conn->prepare("UPDATE report SET adminDesc = ? WHERE report_id = ?");
+    $stmt->bind_param("si", $adminDesc, $report_id);
+    $stmt->execute();
+}
+
+
 // Ambil semua laporan
 $sql = "SELECT r.report_id, r.report_text, r.status, res.username, res.id AS residence_id
         FROM reports r
@@ -28,6 +38,8 @@ $sql = "SELECT r.report_id, r.report_text, r.status, res.username, res.id AS res
         ORDER BY r.report_date DESC";
 $result = $conn->query($sql);
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -77,10 +89,18 @@ $result = $conn->query($sql);
         }
         
         #button-back {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
+
+        textarea {
+            border-radius: 5px;
+            padding: 5px;
+            resize: vertical;
+            font-family: Arial;
+        }
+
 
 
     </style>
@@ -96,7 +116,7 @@ $result = $conn->query($sql);
         <th>Report ID</th>
         <th>Description</th>
         <th>Status</th>
-        <
+    
     </tr>
     <?php while($row = $result->fetch_assoc()): ?>
     <tr>
@@ -113,6 +133,7 @@ $result = $conn->query($sql);
                 </select>
             </form>
         </td>
+       
     </tr>
     <?php endwhile; ?>
 </table>
