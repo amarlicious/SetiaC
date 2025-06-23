@@ -9,7 +9,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
-// ======== CARIAN ==========
+// nak cari guna username
 $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
 
 // SQL: gabung carian + susunan

@@ -6,41 +6,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $input_password = $_POST['password'];
 
-    // 1. Semak dalam table admin
+    // 1. Semak dalam table admin (username)
     $sqlAdmin = "SELECT * FROM admin WHERE username = '$username'";
     $resultAdmin = $conn->query($sqlAdmin);
 
+    //nak tahu dapat jumpa ke tidak
     if ($resultAdmin && $resultAdmin->num_rows === 1) {
         $admin = $resultAdmin->fetch_assoc();
 
+        //untuk semak password admin
         if (password_verify($input_password, $admin['password'])) {
             $_SESSION['username'] = $admin['username'];
             $_SESSION['role'] = 'admin';
 
-            header("Location: main.php"); 
+            //akan pegi page main admin
+            header("Location: mainAdmin.php"); 
             exit();
         } else {
             $error = "Login Fail: Wrong password (admin)";
         }
+
     } else {
+
         // 2. Semak dalam table residence
         $sqlUser = "SELECT * FROM residence WHERE username = '$username'";
         $resultUser = $conn->query($sqlUser);
 
+        //nak tahu dapat jumpa ke tidak
         if ($resultUser && $resultUser->num_rows === 1) {
             $user = $resultUser->fetch_assoc();
 
+            //untuk semak password admin
             if (password_verify($input_password, $user['password'])) {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = 'user';
 
-                header("Location: main.php"); // user dashboard
+                header("Location: main.php"); // user main
                 exit();
             } else {
                 $error = "Login Fail: Wrong password (user)";
             }
         } else {
-            $error = "Login Fail: Username doesn't exist";
+          //kalau user and admin tak wujud/ 
+            $error = "Login Fail: Username doesn't exist"; 
         }
     }
 }
@@ -69,6 +77,7 @@ $conn->close();
   </style>
 </head>
 <body>
+  
   <?php if (!empty($error)): ?>
     <div class="message"><?= htmlspecialchars($error) ?></div>
     <meta http-equiv="refresh" content="3;URL=index.php">

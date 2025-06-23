@@ -10,141 +10,93 @@ if (!isset($_SESSION['username'])) {
 }
 
 $username = $_SESSION['username'];
-$report_list = [];
+$report_list = []; 
 $total_reports = 0;
 
-// Dapatkan semua laporan oleh pengguna yang log masuk
-$sql = "SELECT r.*, res.username AS reporter_username, adminDesc 
-        FROM reports r 
-        JOIN residence res ON r.user_id = res.id 
-        WHERE res.username = ? 
-        ORDER BY r.report_date DESC";
 
-if ($stmt = $conn->prepare($sql)) {
+$nakSearch = isset($_GET['search']) ? '%' . $_GET['search'] . '%' : null;
+
+if ($nakSearch) {
+    $sql = "SELECT r.*, res.username AS reporter_username, adminDesc 
+            FROM reports r 
+            JOIN residence res ON r.user_id = res.id 
+            WHERE res.username = ? AND r.category LIKE ? 
+            ORDER BY r.report_date DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $nakSearch);
+} else {
+    $sql = "SELECT r.*, res.username AS reporter_username, adminDesc 
+            FROM reports r 
+            JOIN residence res ON r.user_id = res.id 
+            WHERE res.username = ? 
+            ORDER BY r.report_date DESC";
+    $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+}
+
+if ($stmt) {
+    $stmt->execute(); 
+    $result = $stmt->get_result(); 
 
     while ($row = $result->fetch_assoc()) {
         $report_list[] = $row;
     }
 
-    // Kira jumlah laporan
     $total_reports = count($report_list);
-
     $stmt->close();
 } else {
     echo "<p style='color: red; text-align: center;'>Ralat pangkalan data: " . $conn->error . "</p>";
 }
 
 $conn->close();
-?>
+
+
+// // Dapatkan semua laporan oleh pengguna yang log masuk
+// $sql = "SELECT r.*, res.username AS reporter_username, adminDesc 
+//         FROM reports r 
+//         JOIN residence res ON r.user_id = res.id 
+//         WHERE res.username = ? 
+//         ORDER BY r.report_date DESC";
+
+// if ($stmt = $conn->prepare($sql)) {
+//     $stmt->bind_param("s", $username);
+//     $stmt->execute();
+//     $result = $stmt->get_result();
+
+//     while ($row = $result->fetch_assoc()) {
+//         $report_list[] = $row;
+//     }
+
+//     // Kira jumlah laporan
+//     $total_reports = count($report_list);
+
+//     $stmt->close();
+// } else {
+//     echo "<p style='color: red; text-align: center;'>Ralat pangkalan data: " . $conn->error . "</p>";
+// }
+
+// $conn->close();
+// ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-     <link rel="stylesheet" href="css/admin.css" type="text/css" />
+    <link rel="stylesheet" href="css/admin.css" type="text/css" />
+    <link rel="stylesheet" href="css/history.css" type="text/css" />
     <title>Report History</title>
-   
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .report-summary {
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 700px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            line-height: 1.6;
-        }
-        .report-summary p {
-            margin-bottom: 8px;
-        }
-        .report-summary strong {
-            display: inline-block;
-            width: 110px;
-            vertical-align: top;
-        }
-        .report-summary span {
-            display: inline-block;
-            width: calc(100% - 120px);
-        }
-        .report-image {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-top: 10px;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        .center-text {
-            text-align: center;
-        }
-        h2, h3 {
-            text-align: center;
-            color: #333;
-        }
-        .status-pending {
-            color: orange;
-            font-weight: bold;
-        }
-        .status-solved {
-            color: green;
-            font-weight: bold;
-        }
-      .head {
-            background-color: #7B61FF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            color: white;
-            font-size: 24px;
-            width: 100%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        #text {
-            font-size: 40px;
-            font-weight: bold;
-            text-align: center;
-            display: block;
-            width: 100%;
-        }
-     
-.home-button {
-    background-color: #7B61FF;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block;
-    margin: 30px auto;
-}
-
-        .home-button:hover {
-            background-color: #d50909;
-        }
-        .home-button a {
-            text-decoration: none;
-            color: white;
-        }
-    </style>
 </head>
 <body>
     <div class="head">
         <h1 id="text">Report History</h1>
     </div>
+
+    <form method="GET" class="center-text">
+    <input type="text" name="search" placeholder="Search your report..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+    <button type="submit">Search</button>
+    </form>
+
 
     <div class="main-content">
         <?php if (!empty($report_list)): ?>

@@ -2,22 +2,25 @@
 session_start();
 include('connect.php');
 
+//semak user log in
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
 }
 
+//simpan nama user
 $username = $_SESSION['username'];
 
-// Guna prepared statement untuk keselamatan
+//untuk elak injection
 $sql = "SELECT * FROM residence WHERE username = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $username);
-$stmt->execute();
-$result = $stmt->get_result();
+$stmt = $conn->prepare($sql); // statement kosong
+$stmt->bind_param("s", $username); //ambil username 
+$stmt->execute(); // jalankan
+$result = $stmt->get_result(); //dapatkan result
 
+//semak user
 if ($result && $result->num_rows == 1) {
-    $user = $result->fetch_assoc();
+    $user = $result->fetch_assoc(); //ambil info tu
 } else {
     // Styling untuk user not found
     echo "
@@ -169,19 +172,21 @@ if ($result && $result->num_rows == 1) {
 
     <img class="profilepart" src="<?= htmlspecialchars($user['picture'] ?: 'uploads/default.jpg') ?>" alt="Profile Picture">
 
+    <!-- paparan -->
     <div class="info">
         <p><span>Full Name:</span> <?= htmlspecialchars($user['name']) ?></p>
         <p><span>Email:</span> <?= htmlspecialchars($user['email']) ?></p>
         <p><span>Contact:</span> <?= htmlspecialchars($user['phone']) ?></p>
     </div>
 
+    <!-- button -->
     <a href="edit.php" class="edit-button">Edit</a>
     <a href="main.php" class="edit-button">Home</a>
 </div>
 
-<div class="content">
+<!-- <div class="content">
     <a href="logout.php" id="logout-button">Log Out</a>
-</div>
+</div> -->
 
 </body>
 </html>
