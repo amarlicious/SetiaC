@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "root", "1234", "student_setiac");
+$conn = new mysqli("localhost:3306", "root", "1234", "student_setiac");
 
 if ($conn->connect_error) {
     http_response_code(500);

@@ -146,45 +146,68 @@ if ($result && $result->num_rows > 0) {
   font-weight: bold;
   color: #333;
 }
+
 .transparent-box {
-  background-color: rgba(255, 255, 255, 0.3);
-  padding: 20px;
-  border-radius: 20px;
-  max-width: 1000px;
-  margin: 20px auto;
-  overflow: hidden; /* penting supaya teks tak keluar */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .teks-bergerak {
-  width: 100%;
   overflow: hidden;
-  position: relative;
 }
 
 .teks-scroll {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scroll-left 15s linear infinite;
-  font-size: 18px;
-  font-weight: bold;
+  white-space: normal;
+  animation: none;
+  transform: none;
+}
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-table tr:nth-child(even) {
+  background-color: #f0f8ff; /* biru muda */
+}
+
+.info-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
   color: #333;
 }
 
-.teks-scroll p {
-  display: inline;
-  margin-right: 60px; /* jarak antara teks */
-  color:red;
+.info-table td:first-child {
+  font-weight: bold;
+  color: #4a4a4a;
+  width: 60%;
 }
 
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.info-table td:last-child {
+  text-align: right;
+  font-weight: bold;
 }
 
+/* Tambah warna berdasarkan jenis data */
+.info-table tr:nth-child(1) td:last-child {
+  color: #007bff; /* Biru untuk total residence */
+}
+
+.info-table tr:nth-child(2) td:last-child {
+  color: #28a745; /* Hijau untuk total reports */
+}
+
+.info-table tr:nth-child(3) td:last-child {
+  color: #dc3545; /* Merah untuk pending */
+}
 
   </style>
 </head>
@@ -196,15 +219,20 @@ if ($result && $result->num_rows > 0) {
   <img src="image/landscape.png" id="picture" style="width:100%; height:auto;">
 </div>
 
-<div class="transparent-box">
-  <div class="teks-bergerak">
-    <div class="teks-scroll">
-      <p>Total Registered Residence: <?= $total_residence ?></p>
-      <p>Total Reports Submitted (All Users): <?= $total_reports ?></p>
-      <p>Pending Reports: <?= $pending_reports ?></p>
-    </div>
-  </div>
-</div>
+<table class="info-table">
+    <tr>
+      <td><strong>Total Registered Residence:</strong></td>
+      <td><?= $total_residence ?></td>
+    </tr>
+    <tr>
+      <td><strong>Total Reports Submitted (All Users):</strong></td>
+      <td><?= $total_reports ?></td>
+    </tr>
+    <tr>
+      <td><strong>Pending Reports:</strong></td>
+      <td><?= $pending_reports ?></td>
+    </tr>
+</table>
 
 
 <main>
