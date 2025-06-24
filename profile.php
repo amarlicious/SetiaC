@@ -177,6 +177,7 @@ if ($result && $result->num_rows == 1) {
         <p><span>Full Name:</span> <?= htmlspecialchars($user['name']) ?></p>
         <p><span>Email:</span> <?= htmlspecialchars($user['email']) ?></p>
         <p><span>Contact:</span> <?= htmlspecialchars($user['phone']) ?></p>
+        <p><span>Unit No:</span> <?= htmlspecialchars($user['unit']) ?></p>
     </div>
 
     <!-- button -->

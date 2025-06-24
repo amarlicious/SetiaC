@@ -1,30 +1,54 @@
 <?php
+
 include("connect.php");
 
 if (isset($_POST['submit'])) {
-    $name     = htmlspecialchars($_POST['name']);
-    $email    = htmlspecialchars($_POST['email']);
-    $phone    = htmlspecialchars($_POST['phone']);
-    $username = htmlspecialchars($_POST['username']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $name            = htmlspecialchars($_POST['name']);
+    $email           = htmlspecialchars($_POST['email']);
+    $phone           = htmlspecialchars($_POST['phone']);
+    $unit            = htmlspecialchars($_POST['unit']);
+    $username        = htmlspecialchars($_POST['username']);
+    $raw_password    = $_POST['password'];
+    $hashed_password = password_hash($raw_password, PASSWORD_DEFAULT);
+    
+    $status = 'pending'; 
 
-    // SEMAK sama ada username sudah wujud
-    $checkUsername = "SELECT * FROM residence WHERE username = '$username'";
-    $result = mysqli_query($conn, $checkUsername);
-
-    if (mysqli_num_rows($result) > 0) {
-        echo "<script>alert('Username already exists. Please choose another one.'); window.history.back();</script>";
+    $checkUsernameSql = "SELECT * FROM residence WHERE username = ?";
+    
+    if ($stmt = mysqli_prepare($conn, $checkUsernameSql)) {
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        
+        if (mysqli_num_rows($result) > 0) {
+            echo "<script>alert('Username already exists. Please choose another one.'); window.history.back();</script>";
+            mysqli_stmt_close($stmt);
+            exit();
+        }
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "<script>alert('Error preparing username check: " . mysqli_error($conn) . "');</script>";
         exit();
     }
 
-    // Jika belum wujud, insert
-    $sql = "INSERT INTO residence (name, email, phone, username, password) 
-            VALUES ('$name', '$email', '$phone', '$username', '$password')";
+    $insertSql = "INSERT INTO residence (name, email, phone, unit, username, password, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Account created successfully!'); window.location.href='index.php';</script>";
+    if ($stmt = mysqli_prepare($conn, $insertSql)) {
+        mysqli_stmt_bind_param($stmt, "sssssss", $name, $email, $phone, $unit, $username, $hashed_password, $status);
+        
+        if (mysqli_stmt_execute($stmt)) {
+            echo "<script>alert('Your account has been successfully registered! Please wait for an admin to approve your account before you can log in.'); window.location.href='index.php';</script>";
+        } else {
+            echo "<script>alert('Error creating account: " . mysqli_stmt_error($stmt) . "');</script>";
+        }
+        mysqli_stmt_close($stmt);
     } else {
-        echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
+        echo "<script>alert('Error preparing account creation: " . mysqli_error($conn) . "');</script>";
     }
+
+    mysqli_close($conn);
+
+} else {
+    echo "<script>alert('Invalid access.'); window.location.href='index.php';</script>";
 }
 ?>

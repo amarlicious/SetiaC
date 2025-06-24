@@ -94,6 +94,7 @@ $conn->close();
                 <div class="report-summary">
                     <p><strong>Report's ID:</strong> <span><?= htmlspecialchars($report['report_id']) ?></span></p>
                     <p><strong>User:</strong> <span><?= htmlspecialchars($report['reporter_username']) ?></span></p>
+                    <p><strong>Unit No:</strong> <span><?= htmlspecialchars($report['unit']) ?></span></p>
                     <p><strong>Date:</strong> <span><?= htmlspecialchars(date('d M Y, H:i A', strtotime($report['report_date']))) ?></span></p>
                     <p><strong>Category:</strong> <span><?= htmlspecialchars($report['category']) ?></span></p>
                     <p><strong>Report:</strong> <span><?= nl2br(htmlspecialchars($report['report_text'])) ?></span></p>

@@ -56,6 +56,12 @@ if (isset($_POST['submit_desc'])) {
 <head>
     <title>Admin Report Table</title>
     <style>
+             body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
         table {
             border-collapse: collapse;
             width: 90%;
@@ -106,13 +112,38 @@ if (isset($_POST['submit_desc'])) {
             resize: vertical;
             font-family: Arial;
         }
+
+                .head {
+            background-color: #7B61FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: white;
+            font-size: 24px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        }
+    </style>
     </style>
 </head>
 <body>
+    <?php include("burger.php");  ?>
 
-<h2 style="text-align:center;">All Reports (Admin View)</h2>
+<div class="head"><h1>All report (Admin view)</h1></div>
 
-<!-- Form Carian -->
+<div class="container">
+    <!-- Form Carian -->
 <form method="GET" style="text-align:center; margin-bottom: 20px;">
     <label for="search">Search Username: </label>
     <input type="text" name="search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
@@ -149,6 +180,7 @@ if (isset($_POST['submit_desc'])) {
 
 <div id="button-back">
     <a href="admin.php" class="edit-button">Back</a>
+</div>
 </div>
 
 </body>

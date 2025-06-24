@@ -7,48 +7,61 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $input_password = $_POST['password'];
 
     // 1. Semak dalam table admin (username)
-    $sqlAdmin = "SELECT * FROM admin WHERE username = '$username'";
-    $resultAdmin = $conn->query($sqlAdmin);
+    $sqlAdmin = "SELECT * FROM admin WHERE username = ?";
+    if ($stmtAdmin = $conn->prepare($sqlAdmin)) {
+        $stmtAdmin->bind_param("s", $username);
+        $stmtAdmin->execute();
+        $resultAdmin = $stmtAdmin->get_result();
 
-    //nak tahu dapat jumpa ke tidak
-    if ($resultAdmin && $resultAdmin->num_rows === 1) {
-        $admin = $resultAdmin->fetch_assoc();
-
-        //untuk semak password admin
-        if (password_verify($input_password, $admin['password'])) {
-            $_SESSION['username'] = $admin['username'];
-            $_SESSION['role'] = 'admin';
-
-            //akan pegi page main admin
-            header("Location: mainAdmin.php"); 
-            exit();
-        } else {
-            $error = "Login Fail: Wrong password (admin)";
-        }
-
-    } else {
-
-        // 2. Semak dalam table residence
-        $sqlUser = "SELECT * FROM residence WHERE username = '$username'";
-        $resultUser = $conn->query($sqlUser);
-
-        //nak tahu dapat jumpa ke tidak
-        if ($resultUser && $resultUser->num_rows === 1) {
-            $user = $resultUser->fetch_assoc();
-
-            //untuk semak password admin
-            if (password_verify($input_password, $user['password'])) {
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['role'] = 'user';
-
-                header("Location: main.php"); // user main
+        if ($resultAdmin && $resultAdmin->num_rows === 1) {
+            $admin = $resultAdmin->fetch_assoc();
+            if (password_verify($input_password, $admin['password'])) {
+                $_SESSION['username'] = $admin['username'];
+                $_SESSION['role'] = 'admin';
+                header("Location: mainAdmin.php"); 
                 exit();
             } else {
-                $error = "Login Fail: Wrong password (user)";
+                $error = "Login Fail: Wrong password (admin)";
             }
+        }
+        $stmtAdmin->close();
+    } else {
+        $error = "Login Fail: Database query error for admin.";
+    }
+
+
+    // Jika bukan admin, semak dalam table residence (hanya jika belum login sebagai admin)
+    if (!isset($_SESSION['role'])) {
+        $sqlUser = "SELECT * FROM residence WHERE username = ?";
+        if ($stmtUser = $conn->prepare($sqlUser)) {
+            $stmtUser->bind_param("s", $username);
+            $stmtUser->execute();
+            $resultUser = $stmtUser->get_result();
+
+            if ($resultUser && $resultUser->num_rows === 1) {
+                $user = $resultUser->fetch_assoc();
+
+                // SEMAK STATUS PENGGUNA DI SINI
+                if ($user['status'] === 'pending') {
+                    $error = "Login Fail: Your account is pending approval by admin.";
+                } elseif ($user['status'] === 'rejected') {
+                    $error = "Login Fail: Your account has been rejected by admin. Please contact support.";
+                } elseif (password_verify($input_password, $user['password'])) {
+                    // Status 'approved' dan password betul
+                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['role'] = 'user';
+                    $_SESSION['unit'] = $user['unit']; // Simpan unit dalam sesi jika diperlukan
+                    header("Location: main.php");
+                    exit();
+                } else {
+                    $error = "Login Fail: Wrong password (user)";
+                }
+            } else {
+                $error = "Login Fail: Username doesn't exist"; 
+            }
+            $stmtUser->close();
         } else {
-          //kalau user and admin tak wujud/ 
-            $error = "Login Fail: Username doesn't exist"; 
+            $error = "Login Fail: Database query error for user.";
         }
     }
 }

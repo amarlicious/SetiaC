@@ -28,17 +28,12 @@ if ($result && $result->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registered Residents</title>
     <style>
-        * {
-            box-sizing: border-box;
-        font-family: 'Inter', sans-serif;
-        }
-
-        body {
+     body, html {
             margin: 0;
-            padding: 20px;
-            background-color: #f0f4f8;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
         }
-
         .container2 {
             max-width: 1000px;
             margin: 0 auto;
@@ -117,10 +112,26 @@ if ($result && $result->num_rows > 0) {
     margin-top: 20px;
 }
 
+      .head {
+            background-color: #7B61FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: white;
+            font-size: 24px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
         
     </style>
 </head>
 <body>
+
+<?php include("burger.php");  ?>
+<div class="head"><h1>Residence Information</h1></div>
+
     <div class="container2">
         <p class="center-text">Total Registered Residence: <?= $total_residence ?></p>
 
@@ -130,9 +141,11 @@ if ($result && $result->num_rows > 0) {
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Unit</th>
                         <th>Username</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -140,9 +153,11 @@ if ($result && $result->num_rows > 0) {
                         <tr>
                             <td><?= htmlspecialchars($user['id']) ?></td>
                             <td><?= htmlspecialchars($user['name']) ?></td>
+                            <td><?= htmlspecialchars($user['unit']) ?></td>
                             <td><?= htmlspecialchars($user['username']) ?></td>
                             <td><?= htmlspecialchars($user['email']) ?></td>
                             <td><?= htmlspecialchars($user['phone']) ?></td>
+                            <td><?= htmlspecialchars($user['status']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
