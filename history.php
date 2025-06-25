@@ -98,15 +98,26 @@ $conn->close();
                     <p><strong>Date:</strong> <span><?= htmlspecialchars(date('d M Y, H:i A', strtotime($report['report_date']))) ?></span></p>
                     <p><strong>Category:</strong> <span><?= htmlspecialchars($report['category']) ?></span></p>
                     <p><strong>Report:</strong> <span><?= nl2br(htmlspecialchars($report['report_text'])) ?></span></p>
-                    <p><strong>Status:</strong> 
-                        <span class="<?= ($report['status'] == 'Solved') ? 'status-solved' : 'status-pending'; ?>">
-                            <?= htmlspecialchars($report['status']) ?>
+                    <?php
+                        $statusClass = '';
+                        switch ($report['status']) {
+                        case 'Solved':
+                        $statusClass = 'status-solved';
+                        break;
+                        case 'Progress':
+                        $statusClass = 'status-progress';
+                        break;
+                        case 'Review':
+                        default:
+                        $statusClass = 'status-review';
+                        break;
+                    }
+                    ?>
+                  <p><strong>Status:</strong> 
+                        <span class="<?= $statusClass ?>">
+                        <?= htmlspecialchars($report['status']) ?>
                         </span>
                     </p>
-                    <p><strong>Admin Note:</strong> 
-                        <span><?= !empty($report['adminDesc']) ? nl2br(htmlspecialchars($report['adminDesc'])) : 'Tiada catatan daripada admin.' ?></span>
-                    </p>
-
                     <?php if (!empty($report['image_path'])): ?>
                         <p><strong>Picture:</strong></p>
                         <img src="<?= htmlspecialchars($report['image_path']) ?>" alt="Report Image" class="report-image" />

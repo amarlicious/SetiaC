@@ -79,7 +79,8 @@ if ($stmt = $conn->prepare($sql)) {
                         <th>Report Text</th>
                         <th>Category</th>
                         <th>Date</th>
-                        <th>Status</th>
+                        <th>Status Current</th>
+                          <th>Status Update</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -91,6 +92,18 @@ if ($stmt = $conn->prepare($sql)) {
                             <td><?= htmlspecialchars($report['category']) ?></td>
                             <td><?= htmlspecialchars($report['report_date']) ?></td>
                             <td><?= htmlspecialchars($report['status']) ?></td>
+                            <td>
+                                <form method="post" action="updatestatus.php">
+                                     <input type="hidden" name="report_id" value="<?= $report['report_id'] ?>">
+                                     <select name="new_status">
+                                            <option value="Review" <?= $report['status'] == 'Review' ? 'selected' : '' ?>>Review</option>
+                                            <option value="Progress" <?= $report['status'] == 'Progress' ? 'selected' : '' ?>>Progress</option>
+                                            <option value="Solved" <?= $report['status'] == 'Solved' ? 'selected' : '' ?>>Solved</option>
+                                     </select>
+                                
+                                     <button type="submit">Update</button>
+                                </form>
+                </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
