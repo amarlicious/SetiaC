@@ -41,6 +41,7 @@ if ($stmt = $conn->prepare($sql)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Admin Page </title>
     <link rel="stylesheet" href="css/admin.css" type="text/css" />
+     <link rel="stylesheet" href="css/statusUpdate.css" type="text/css" />
 </head>
 <body>
 
@@ -48,8 +49,19 @@ if ($stmt = $conn->prepare($sql)) {
 
 <div class="head"">
     <h1>Admin</h1>
-    
 </div>
+
+<div class="container-first" style="text-align: center;">
+    <h2 style="margin-bottom: 20px;"></h2>
+    
+    <form method="GET" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+        <label for="search">Search Username: </label>
+        <input type="text" name="search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+
 
 <div class="main-content-wrapper">
     <!-- Sidebar for Admin -->
@@ -80,7 +92,7 @@ if ($stmt = $conn->prepare($sql)) {
                         <th>Category</th>
                         <th>Date</th>
                         <th>Status Current</th>
-                          <th>Status Update</th>
+                        <th>Status Update</th>
                     </tr>
                 </thead>
                 <tbody>
