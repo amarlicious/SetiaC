@@ -2,16 +2,6 @@
 session_start();
 include('connect.php');
 
-if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
-    exit();
-}
-
-$login_username = $_SESSION['username'];
-$is_admin = ($login_username === 'admin'); // Ensure this is your actual admin username
-
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['announcement_message'])) {
     $announcement_message = trim($_POST['announcement_message']);
 
@@ -22,12 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['announcement_message'
 
         if ($insert_stmt->execute()) {
             header("Location: community.php?status=success");
-            exit();
         } else {
             header("Location: community.php?status=error");
-            exit();
         }
         $insert_stmt->close();
+        exit();
     } else {
         header("Location: community.php?status=empty");
         exit();
@@ -47,46 +36,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['announcement_message'
             font-family: 'Segoe UI', sans-serif;
             background-color: #fefefe;
             color: #333;
-        }
-        main {
             padding: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .head {
-            background-color: #7B61FF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            color: white;
-            font-size: 24px;
-            width: 100%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        #text {
-            font-size: 40px;
-            font-weight: bold;
-            text-align: center;
-            display: block;
-            width: 100%;
         }
         .admin-form-container {
             background-color: #e0e0e0;
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 30px;
+            margin: 40px auto;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 600px;
         }
-        .admin-form-container h3 {
-            color: #333;
-            margin-top: 0;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .admin-form-container textarea {
-            width: calc(100% - 20px);
+        textarea {
+            width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
@@ -94,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['announcement_message'
             resize: vertical;
             min-height: 120px;
         }
-        .admin-form-container button {
+        button {
             background-color: #7B61FF;
             color: white;
             padding: 10px 20px;
@@ -102,66 +63,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['announcement_message'
             border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
-            display: block;
             width: 100%;
             transition: background-color 0.3s ease;
         }
-        .admin-form-container button:hover {
+        button:hover {
             background-color: #6a53d6;
         }
-            .center-text form {
-            margin: 20px auto;
+        a {
+            display: block;
             text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #7B61FF;
+            font-weight: bold;
         }
-
-   
-
-        .send-button {
-    background-color: #7B61FF;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: auto;
-    margin-top: 30px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.send-button:hover {
-    background-color: #d50909;
-}
-       
     </style>
 </head>
 <body>
-
-<?php include("burger.php"); ?>
-
-<div class="head">
-    <h1 id="text">Make Announcement</h1>
-</div>
-
-<main>
-    <section class="admin-form-container">
-        <h3>Make an announcement for all users</h3>
-        <form action="admin_announcement.php" method="POST">
+    <div class="admin-form-container">
+        <h1>Make Announcement</h1>
+        <form method="POST">
             <textarea name="announcement_message" placeholder="Write your announcement here..." required></textarea>
             <button type="submit">Post Announcement</button>
         </form>
-    </section>
-
-  <div class="center-text">
-   
-        <a href="main.php"><button class="send-button">Home</button></a>
+        <a href="community.php">Back to Community</a>
     </div>
-</main>
-
-<?php include("footer.php"); ?>
 </body>
 </html>

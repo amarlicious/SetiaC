@@ -8,13 +8,13 @@ if (!isset($_SESSION['username'])) {
 }
 
 $login_username = $_SESSION['username'];
-$name = $login_username;
 
 $sql = "SELECT name FROM residence WHERE username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $login_username);
 $stmt->execute();
 $result = $stmt->get_result();
+$name = $login_username;
 if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $name = $row['name'];
@@ -81,9 +81,6 @@ $is_admin = ($login_username === 'admin');
             margin-bottom: 20px;
             min-height: 80px;
         }
-        .announcement:last-child {
-            margin-bottom: 30px;
-        }
         #bell {
             width: 30px;
             flex-shrink: 0;
@@ -130,17 +127,14 @@ $is_admin = ($login_username === 'admin');
         .status-message.success {
             background-color: #d4edda;
             color: #155724;
-            border-color: #c3e6cb;
         }
         .status-message.error {
             background-color: #f8d7da;
             color: #721c24;
-            border-color: #f5c6cb;
         }
         .status-message.empty {
             background-color: #fff3cd;
             color: #856404;
-            border-color: #ffeeba;
         }
     </style>
 </head>
@@ -156,13 +150,9 @@ $is_admin = ($login_username === 'admin');
     <?php if (isset($_GET['status'])): ?>
         <div class="status-message <?php echo htmlspecialchars($_GET['status']); ?>">
             <?php
-                if ($_GET['status'] === 'success') {
-                    echo "Announcement successfully added!";
-                } elseif ($_GET['status'] === 'error') {
-                    echo "Error: Announcement could not be added.";
-                } elseif ($_GET['status'] === 'empty') {
-                    echo "Announcement cannot be empty.";
-                }
+                if ($_GET['status'] === 'success') echo "Announcement successfully added!";
+                elseif ($_GET['status'] === 'error') echo "Error: Announcement could not be added.";
+                elseif ($_GET['status'] === 'empty') echo "Announcement cannot be empty.";
             ?>
         </div>
     <?php endif; ?>
@@ -170,7 +160,7 @@ $is_admin = ($login_username === 'admin');
     <?php if ($is_admin): ?>
         <section class="admin-link-container">
             <p>You are logged in as Admin. Click below to make a new announcement.</p>
-            <a href="admin_announcement.php">Make New Announcement</a>
+            <a href="announcementAdmin.php">Make New Announcement</a>
         </section>
     <?php endif; ?>
 
@@ -190,7 +180,7 @@ $is_admin = ($login_username === 'admin');
         } else {
             echo "<div class='announcement'>";
             echo "<img src='image/bell.png' alt='bell' id='bell'>";
-            echo "No announcement right now.";
+            echo "<h3>No announcement right now.</h3>";
             echo "</div>";
         }
         ?>
