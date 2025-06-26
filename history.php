@@ -129,6 +129,9 @@ $conn->close();
                         <input type="hidden" name="report_id" value="<?= htmlspecialchars($report['report_id']) ?>">
                         <button type="submit" class="delete-button">Delete</button>
                     </form>
+                         <p>Give your feedback about the report</p>
+        <a href="feedback.php"><button class="home-button">Feedback</button></a>
+        <br>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
@@ -137,6 +140,7 @@ $conn->close();
     </div>
 
     <div class="center-text">
+   
         <a href="main.php"><button class="home-button">Home</button></a>
     </div>
 </body>
