@@ -151,6 +151,8 @@ mysqli_close($conn);
             padding: 30px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.1);
         }
+
+        
     </style>
 </head>
 <body>
@@ -165,7 +167,7 @@ mysqli_close($conn);
     <?php endif; ?>
 
     <?php if (empty($pendingUsers)): ?>
-        <p>Tiada pengguna menunggu kelulusan.</p>
+        <p>No user is waiting for approval.</p>
     <?php else: ?>
         <table>
             <thead>

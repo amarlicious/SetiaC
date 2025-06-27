@@ -71,7 +71,7 @@ if ($stmt = $conn->prepare($sql)) {
             <li id="approve"><a href="adminApprove.php">Admin Approval</a></li>
             <li id="residence"><a href="residenceinfo.php">Residence's Information</a></li>
             <li id="feedback"><a href="feedbackadmin.php">Feedback</a></li>
-            <li id="setting"><a href="statusUpdate.php">Status Update</a></li>
+            <li id="announnce"><a href="announcementAdmin.php">Announcement</a></li>
             <li id="setting"><a href="chart.php">Graph Category's Report</a></li>
 
         </ul>

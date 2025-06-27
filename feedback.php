@@ -118,7 +118,7 @@ if ($result->num_rows == 1) {
     <div class="feedback-container">
         <div class="feedback-box">
             <form action="feedbackpost.php" method="POST">
-                <label for="feedback_text"><strong>Write Your Feedback:</strong></label><br><br>
+                <label for="feedback_text"><strong>Give Your Feedback about the report:</strong></label><br><br>
                 <textarea name="feedback_text" id="feedback_text" required></textarea><br>
                 <button type="submit" class="submit-btn">Submit</button>
             </form>

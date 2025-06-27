@@ -240,9 +240,9 @@ if ($result && $result->num_rows > 0) {
     <h2 class="center-text">General</h2>
     <div class="button-group">
       <a class="select" href="report.php">Report</a>
-      <a class="select" href="community.php">Community</a>
+      <a class="select" href="community.php">Announcement</a>
       <a class="select" href="admin.php">Admin</a>
-      <a class="select" href="feedback.php">Feedback</a> 
+    
     </div>
    
   </nav>
