@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fullname = htmlspecialchars($_POST['fullname']);
     $email = htmlspecialchars($_POST['email']);
     $phone = htmlspecialchars($_POST['phone']);
+    $unit = htmlspecialchars($_POST['unit']);
 
 
     $picture = $user['picture']; 
@@ -39,9 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    $update_sql = "UPDATE residence SET name = ?, email = ?, phone = ?, picture = ? WHERE username = ?";
+    $update_sql = "UPDATE residence SET name = ?, email = ?, phone = ?, picture = ?, unit = ? WHERE username = ?";
     $stmt = $conn->prepare($update_sql);
-    $stmt->bind_param("sssss", $fullname, $email, $phone, $picture, $username);
+    $stmt->bind_param("ssssss", $fullname, $email, $phone, $picture, $unit, $username);
+
 
     if ($stmt->execute()) {
         $message = "<div class='success-message'>Profile updated successfully!</div>";
@@ -51,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user['email'] = $email;
         $user['phone'] = $phone;
         $user['picture'] = $picture;
+        $user['unit'] = $unit;
     } else {
         $message = "<div class='error-message'>Error updating profile: " . $conn->error . "</div>";
     }
@@ -93,6 +96,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="form-group">
             <label for="phone">Phone no:</label>
             <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($user['phone']) ?>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="unit">Unit:</label>
+            <input type="text" name="unit" id="unit" value="<?= htmlspecialchars($user['unit']) ?>">
         </div>
 
         <div class="form-group" enctype="multipart/form-data">
