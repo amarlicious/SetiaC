@@ -85,7 +85,7 @@ if ($result->num_rows == 1) {
         .submit-btn {
             margin-top: 15px;
             padding: 10px 20px;
-            background-color: #28a745;
+            background-color: #7B61FF;
             border: none;
             color: white;
             font-size: 16px;

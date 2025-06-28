@@ -11,24 +11,44 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 $report_list = [];
 $total_reports = 0;
 
-// Get reports
-$sql = "SELECT r.*, res.username AS reporter_username 
-        FROM reports r 
-        JOIN residence res ON r.user_id = res.id 
-        ORDER BY r.report_date DESC";
+// search
+$search = isset($_GET['search']) ? trim($_GET['search']) : '';
 
-if ($stmt = $conn->prepare($sql)) {
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    while ($row = $result->fetch_assoc()) {
-        $report_list[] = $row;
+if (!empty($search)) {
+    $sql = "SELECT r.*, res.username AS reporter_username 
+            FROM reports r 
+            JOIN residence res ON r.user_id = res.id 
+            WHERE res.username LIKE ?
+            ORDER BY r.report_date DESC";
+    if ($stmt = $conn->prepare($sql)) {
+        $searchParam = '%' . $search . '%';
+        $stmt->bind_param("s", $searchParam);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            $report_list[] = $row;
+        }
+        $total_reports = count($report_list);
+        $stmt->close();
+    } else {
+        echo "Error preparing statement: " . $conn->error;
     }
-
-    $total_reports = count($report_list);
-    $stmt->close();
 } else {
-    echo "Error preparing statement: " . $conn->error;
+    $sql = "SELECT r.*, res.username AS reporter_username 
+            FROM reports r 
+            JOIN residence res ON r.user_id = res.id 
+            ORDER BY r.report_date DESC";
+    if ($stmt = $conn->prepare($sql)) {
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            $report_list[] = $row;
+        }
+        $total_reports = count($report_list);
+        $stmt->close();
+    } else {
+        echo "Error preparing statement: " . $conn->error;
+    }
 }
 
 
@@ -51,8 +71,8 @@ if ($stmt = $conn->prepare($sql)) {
     <h1>Admin</h1>
 </div>
 
-<div class="container-first" style="text-align: center;">
-    <h2 style="margin-bottom: 20px;"></h2>
+<div class="container-first" style="text-align: center; margin-top: 30px;">
+  
     
     <form method="GET" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
         <label for="search">Search Username: </label>
@@ -67,7 +87,7 @@ if ($stmt = $conn->prepare($sql)) {
     <!-- Sidebar for Admin -->
     <div class="admin-sidebar">
         <ul>
-            <li id="Home"><a href="main.php">Home</a></li>
+            <li id="Home"><a href="mainAdmin.php">Home</a></li>
             <li id="approve"><a href="adminApprove.php">Admin Approval</a></li>
             <li id="residence"><a href="residenceinfo.php">Residence's Information</a></li>
             <li id="feedback"><a href="feedbackadmin.php">Feedback</a></li>

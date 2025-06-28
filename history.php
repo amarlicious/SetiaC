@@ -12,17 +12,26 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 $report_list = []; 
 $total_reports = 0;
+$search_error = null;
 
+$allowed_categories = ['Infrastructure', 'Facilities', 'Safety', 'Others'];
 $nakSearch = isset($_GET['search']) ? '%' . $_GET['search'] . '%' : null;
 
+$nakSearch = isset($_GET['search']) ? trim($_GET['search']) : null;
+
 if ($nakSearch) {
-    $sql = "SELECT r.*, res.username AS reporter_username, adminDesc 
-            FROM reports r 
-            JOIN residence res ON r.user_id = res.id 
-            WHERE res.username = ? AND r.category LIKE ? 
-            ORDER BY r.report_date DESC";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $username, $nakSearch);
+   if (in_array(strtolower($nakSearch), array_map('strtolower', $allowed_categories))) {
+        $searchParam = '%' . $nakSearch . '%';
+        $sql = "SELECT r.*, res.username AS reporter_username
+                FROM reports r 
+                JOIN residence res ON r.user_id = res.id 
+                WHERE res.username = ? AND r.category LIKE ? 
+                ORDER BY r.report_date DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $username, $searchParam);
+    } else {
+        $search_error = "Kategori tidak sah. Sila cari berdasarkan kategori yang betul.";
+    }
 } else {
     $sql = "SELECT r.*, res.username AS reporter_username
             FROM reports r 
@@ -33,7 +42,7 @@ if ($nakSearch) {
     $stmt->bind_param("s", $username);
 }
 
-if ($stmt) {
+if (isset($stmt) && $stmt) {
     $stmt->execute(); 
     $result = $stmt->get_result(); 
 
@@ -43,12 +52,11 @@ if ($stmt) {
 
     $total_reports = count($report_list);
     $stmt->close();
-} else {
-    echo "<p style='color: red; text-align: center;'>Ralat pangkalan data: " . $conn->error . "</p>";
 }
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +90,7 @@ $conn->close();
     </div>
 
     <form method="GET" class="center-text">
-        <input type="text" name="search" placeholder="Search your report..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+        <input type="text" name="search" placeholder="Search by your catgeory" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
         <button type="submit">Search</button>
     </form>
 
